@@ -12,6 +12,7 @@
   },
   "author": "",
   "license": "ISC",
+  "private": true,
   "bugs": {
     "url": "https://github.com/schonherz-ui-2016/webshop/issues"
   },
