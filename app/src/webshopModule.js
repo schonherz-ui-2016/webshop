@@ -6,6 +6,6 @@
 (function () {
 
     angular
-        .module('newModule', []);
+        .module('webshopModule', []);
 
 })();
