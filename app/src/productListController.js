@@ -4,9 +4,9 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductListCtrl', productListController);
+        .controller('ProductListCtrl', ProductListController);
 
-    function productListController($http, $scope) {
+    function ProductListController($http, $scope) {
         $http({
             method: 'GET',
             url: 'http://localhost:1337/product'
