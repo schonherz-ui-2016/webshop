@@ -1,15 +1,22 @@
 nav {
-    margin: 0 !important;
 
     .navbar-brand {
         padding: 5px 15px 15px 15px;
     }
 }
 
+nav.navbar {
+    margin: 0;
+}
+
 #carousel {
     background-image: url("http://placehold.it/1x400/#cccccc");
-    background-size: 100% 40%;
     background-color: #cccccc;
+
+    img {
+        width: 80%;
+        height: 50%;
+    }
 }
 
 footer {
