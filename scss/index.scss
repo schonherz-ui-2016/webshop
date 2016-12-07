@@ -10,13 +10,9 @@ nav.navbar {
 }
 
 #carousel {
-    background-image: url("http://placehold.it/1x400/#cccccc");
-    background-color: #cccccc;
-
-    img {
-        width: 80%;
-        height: 50%;
-    }
+    background: url("http://lorempixel.com/1200/400/sports/2/") center;
+    background-size: cover;
+    height: 400px;
 }
 
 footer {
