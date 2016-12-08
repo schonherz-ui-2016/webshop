@@ -9,6 +9,9 @@
                 })
                 .when('/product/1', {
                     templateUrl: 'empty.html'
+                })
+                .when('/product/:id', {
+                    templateUrl: 'productDetails.html'
                 });
         })
 })();
