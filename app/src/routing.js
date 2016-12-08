@@ -8,7 +8,7 @@
                     controller: 'ProductListCtrl'
                 })
                 .when('/product/:id', {
-                    templateUrl: 'productDetails.html'
+                    templateUrl: 'templates/productDetails.html'
                 });
         })
 })();
