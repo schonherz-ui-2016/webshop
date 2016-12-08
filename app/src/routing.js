@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('webshopModule',['ngRoute'])
+        .module('webshopModule')
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {
