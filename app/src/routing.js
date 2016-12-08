@@ -4,11 +4,11 @@
         .config(function ($routeProvider) {
             $routeProvider
                 .when('/', {
-                    templateUrl: 'main.html',
+                    templateUrl: 'templates/main.html',
                     controller: 'ProductListCtrl'
                 })
                 .when('/product/1', {
-                    templateUrl: 'empty.html'
+                    templateUrl: 'templates/empty.html'
                 });
         })
 })();
