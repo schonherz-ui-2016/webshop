@@ -7,8 +7,8 @@
                     templateUrl: 'templates/main.html',
                     controller: 'ProductListCtrl'
                 })
-                .when('/product/1', {
-                    templateUrl: 'templates/empty.html'
+                .when('/product/:id', {
+                    templateUrl: 'templates/productDetails.html'
                 });
         })
 })();
