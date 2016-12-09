@@ -12,20 +12,13 @@
 
 <div id="carousel"></div>
 <div class="container content">
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Here comes product #1</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu varius lectus. Proin rhoncus ac metus non egestas. Sed at sagittis velit, id condimentum leo. Vestibulum convallis sollicitudin ultricies. Morbi ac ex nec ipsum iaculis dapibus a in orci. Nulla blandit ante ac risus imperdiet, et maximus ante mattis. Praesent feugiat purus in metus condimentum, ac maximus augue ullamcorper. Pellentesque tempor ornare sodales. Aliquam a feugiat nisi, sodales scelerisque odio. Nunc laoreet orci vitae egestas mattis. Cras porttitor purus ac leo vestibulum, porta sodales urna venenatis. Quisque egestas convallis varius. Vivamus eu rutrum diam, ac tempus odio. Donec porttitor vestibulum.</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Here comes product #2</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu varius lectus. Proin rhoncus ac metus non egestas. Sed at sagittis velit, id condimentum leo. Vestibulum convallis sollicitudin ultricies. Morbi ac ex nec ipsum iaculis dapibus a in orci. Nulla blandit ante ac risus imperdiet, et maximus ante mattis. Praesent feugiat purus in metus condimentum, ac maximus augue ullamcorper. Pellentesque tempor ornare sodales. Aliquam a feugiat nisi, sodales scelerisque odio. Nunc laoreet orci vitae egestas mattis. Cras porttitor purus ac leo vestibulum, porta sodales urna venenatis. Quisque egestas convallis varius. Vivamus eu rutrum diam, ac tempus odio. Donec porttitor vestibulum.</p>
-        </div>
-        <div class="col-md-4">
-            <h2>Here comes product #3</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu varius lectus. Proin rhoncus ac metus non egestas. Sed at sagittis velit, id condimentum leo. Vestibulum convallis sollicitudin ultricies. Morbi ac ex nec ipsum iaculis dapibus a in orci. Nulla blandit ante ac risus imperdiet, et maximus ante mattis. Praesent feugiat purus in metus condimentum, ac maximus augue ullamcorper. Pellentesque tempor ornare sodales. Aliquam a feugiat nisi, sodales scelerisque odio. Nunc laoreet orci vitae egestas mattis. Cras porttitor purus ac leo vestibulum, porta sodales urna venenatis. Quisque egestas convallis varius. Vivamus eu rutrum diam, ac tempus odio. Donec porttitor vestibulum.</p>
-        </div>
-    </div>
+    <ul class="row">
+        <li class="col-md-3 col-sm-6 col-xs-12" ng-repeat="product in products">
+            <a href="#/products/{{product.id}}">
+                <h3>{{product.name}}</h3>
+            </a>
+        </li>
+    </ul>
 </div>
 
 <footer>
