@@ -4,19 +4,12 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductListCtrl', ProductListController);
-
-    function ProductListController($http, $scope) {
-        $http({
-            method: 'GET',
-            url: 'http://localhost:1337/product'
-        }).then(function (result) {
-            $scope.products = result.data;
+        .controller('ProductListController', function ($http, $scope) {
+            $http({
+                url: "http://localhost:1337/product",
+                method: 'GET'
+            }).then(function (result) {
+                $scope.products = result.data;
+            });
         });
-    }
 })();
-
-
-
-
-
