@@ -9,14 +9,7 @@
                 })
                 .when('/product/:id', {
                     templateUrl: 'templates/productDetails.html',
-                    controller: function ($http, $routeParams, $scope) {
-                        $http({
-                            url: "http://localhost:1337/product/" + $routeParams.id,
-                            method: 'GET'
-                        }).then(function (result) {
-                            $scope.product = result.data;
-                        });
-                    }
+                    controller: 'ProductDetailsController'
                 });
         })
 })();
