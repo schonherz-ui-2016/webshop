@@ -9,6 +9,10 @@
                 })
                 .when('/product/:id', {
                     templateUrl: 'templates/productDetails.html'
+                })
+                .when('/login', {
+                    templateUrl: 'templates/loginPage.html',
+                    controller: 'LoginCtrl'
                 });
         })
 })();
