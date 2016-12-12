@@ -10,12 +10,10 @@
                 "password": password
             }).then(function (result) {
                 token = result.data.token;
-                //$location.path("/login");
-            }, function () {
-                //errorCallback
-            });
 
+            }, function () {
+
+            });
         }
-        //login($scope.email, $scope.password);
     }
 })();
