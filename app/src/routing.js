@@ -8,8 +8,16 @@
                     controller: 'ProductListCtrl'
                 })
                 .when('/product/:id', {
+
                     templateUrl: 'templates/productDetails.html',
                     controller: 'ProductDetailsCtrl'
+
+                    templateUrl: 'templates/productDetails.html'
+                })
+                .when('/login', {
+                    templateUrl: 'templates/loginPage.html',
+                    controller: 'LoginCtrl'
+
                 });
         })
 })();
