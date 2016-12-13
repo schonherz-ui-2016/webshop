@@ -7,10 +7,10 @@
         .module('webshopModule')
         .controller('ProductDetailsCtrl', ProductDetailsController);
 
-    function ProductDetailsController($http, $scope) {
+    function ProductDetailsController($http, $scope, $routeParams) {
             $http({
                 method: 'GET',
-                url: 'http://localhost:1337/product/{id}'
+                url: 'http://localhost:1337/product/' + $routeParams
             })
                 .then(function (result) {
                     $scope.details = result.data;
