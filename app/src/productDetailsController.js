@@ -4,7 +4,7 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductDetailsController', function ($http, $routeParams, $scope) {
+        .controller('ProductDetailsCtrl', function ($http, $routeParams, $scope) {
             $http({
                 url: "http://localhost:1337/product/" + $routeParams.id,
                 method: 'GET'

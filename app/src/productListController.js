@@ -1,15 +1,17 @@
-/**
- * Created by Szimi7 on 2016.12.07..
- */
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductListController', function ($http, $scope) {
+        .controller('ProductListCtrl', ProductListController);
+
+    function ProductListController($http, $scope) {
+        function getProducts() {
             $http({
-                url: "http://localhost:1337/product",
-                method: 'GET'
+                method: 'GET',
+                url: 'http://localhost:1337/product'
             }).then(function (result) {
                 $scope.products = result.data;
             });
-        })
+        }
+    getProducts();
+    }
 })();
