@@ -1,15 +1,20 @@
 /**
- * Created by Misi on 2016.12.11..
+ * Created by Krisztián on 2016.12.09..
  */
+
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductDetailsCtrl', function ($http, $routeParams, $scope) {
+        .controller('ProductDetailsCtrl', ProductDetailsController);
+
+    function ProductDetailsController($http, $scope, $routeParams) {
             $http({
-                url: "http://localhost:1337/product/" + $routeParams.id,
-                method: 'GET'
-            }).then(function (result) {
-                $scope.product = result.data;
-            });
-        })
+                method: 'GET',
+                url: 'http://localhost:1337/product/' + $routeParams.id
+            })
+                .then(function (result) {
+                    $scope.product = result.data;
+                });
+        }
+
 })();
