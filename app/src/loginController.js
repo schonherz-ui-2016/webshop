@@ -1,7 +1,7 @@
 (function () {
     var token = "";
     angular.module('webshopModule')
-        .controller('LoginCtrl', function ($http, $scope, $location) {
+        .controller('loginCtrl', function ($http, $scope, $location) {
             $scope.login = function (email, password) {
                 return $http.post('http://localhost:1337/user/login', {
                     "email": email,
