@@ -1,5 +1,4 @@
 nav {
-
     .navbar-brand {
         padding: 5px 15px 15px 15px;
     }
@@ -13,6 +12,12 @@ nav.navbar {
     background: url("http://lorempixel.com/1200/400/sports/2/") center;
     background-size: cover;
     height: 400px;
+}
+
+.content {
+    ul {
+        list-style-type: none;
+    }
 }
 
 footer {
