@@ -1,8 +1,8 @@
-<a href="#/login">test</a>
-<form ng-submit="login(email, password)">
+<form name="form" ng-submit="login(email, password)">
     <label>E-mail:</label>
-    <input placeholder="Enter E-mail Address" type="text" ng-model="email" required>
+    <input placeholder="Enter E-mail Address" type="text" ng-model="user.email" required>
     <label>Password:</label>
-    <input placeholder="Enter Password" type="password" ng-model="password" required>
+    <input placeholder="Enter Password" type="password" ng-model="user.password" required>
     <input type="submit" value="Login"/>
 </form>
+

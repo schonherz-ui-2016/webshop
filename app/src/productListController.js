@@ -12,8 +12,8 @@
                 $scope.products = result.data;
             });
         }
+        getProducts();
     }
-    getProducts();
 })();
 
 
