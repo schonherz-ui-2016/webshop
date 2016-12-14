@@ -10,10 +10,10 @@
     function ProductDetailsController($http, $scope, $routeParams) {
             $http({
                 method: 'GET',
-                url: 'http://localhost:1337/product/' + $routeParams
+                url: 'http://localhost:1337/product/' + $routeParams.id
             })
                 .then(function (result) {
-                    $scope.details = result.data;
+                    $scope.product = result.data;
                 });
 
         }
