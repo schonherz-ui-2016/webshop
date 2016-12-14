@@ -15,7 +15,5 @@
                 .then(function (result) {
                     $scope.product = result.data;
                 });
-
         }
-
 })();
