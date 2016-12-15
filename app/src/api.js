@@ -2,15 +2,16 @@
     var urlBase = 'http://localhost:1337';
     angular
         .module('webshopModule')
-        .service('api', Service)
+        .service('api', apiService)
 
-    function Service($http) {
+    function apiService($http) {
         this.getProducts = function () {
             return $http.get(urlBase + '/product');
         };
 
         this.getProductDetails = function (id) {
-            return $http.get(urlBase + '/product/' + id)
+            return $http.get(urlBase + '/product/' + id);
         }
+
     }
 })();

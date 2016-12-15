@@ -3,15 +3,12 @@
         .module('webshopModule')
         .controller('ProductListCtrl', ProductListController);
 
-    function ProductListController($http, $scope) {
+    function ProductListController($http, $scope, api) {
         function getProducts() {
-            $http({
-                method: 'GET',
-                url: 'http://localhost:1337/product'
-            }).then(function (result) {
-                $scope.products = result.data;
-            });
-
+            api.getProducts()
+                .then(function (result) {
+                    $scope.products = result.data;
+                });
         }
 
         getProducts();
