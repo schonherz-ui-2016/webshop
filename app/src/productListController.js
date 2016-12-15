@@ -11,7 +11,9 @@
             }).then(function (result) {
                 $scope.products = result.data;
             });
+
         }
         getProducts();
     }
+
 })();
