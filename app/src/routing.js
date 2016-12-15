@@ -15,6 +15,10 @@
                 .when('/login', {
                     templateUrl: 'templates/loginPage.html',
                     controller: 'LoginCtrl'
+                })
+                .when('/registration', {
+                    templateUrl: 'templates/registrationPage.html',
+                    controller: 'RegistrationCtrl'
                 });
         })
 })();
