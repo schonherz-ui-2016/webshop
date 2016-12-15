@@ -5,6 +5,12 @@
         .service('api', Service)
 
     function Service($http) {
-        
+        this.getProducts = function () {
+            return $http.get(urlBase + '/product');
+        };
+
+        this.getProductDetails = function (id) {
+            return $http.get(urlBase + '/product/' + id)
+        }
     }
 })();
