@@ -3,5 +3,5 @@
  */
 (function () {
     angular
-        .module('webshopModule', ['ngRoute']);
+        .module('webshopModule', ['ngRoute'])
 })();
