@@ -7,7 +7,7 @@
                     "email": email,
                     "password": password
                 }).then(function (result) {
-                    result.data.token = token;
+                    token = result.data.token;
                     $location.path("/");
                 });
             }
