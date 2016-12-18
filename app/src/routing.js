@@ -14,7 +14,10 @@
                 .when('/login', {
                     templateUrl: 'templates/loginPage.html',
                     controller: 'LoginCtrl'
-
+                })
+                .when('/order/:id', {
+                    templateUrl: 'templates/orderPage.html',
+                    controller: 'ProductDetailsCtrl'
                 });
         })
 })();
