@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductDetailsCtrl', ProductDetailsController);
+        .controller('productDetailsCtrl', ProductDetailsController);
 
     function ProductDetailsController($scope, api, $routeParams) {
         api.getProductDetails($routeParams.id)
