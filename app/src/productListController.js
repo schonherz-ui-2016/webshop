@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('ProductListCtrl', ProductListController);
+        .controller('productListCtrl', ProductListController);
 
     function ProductListController($http, $scope, api) {
         function getProducts() {
@@ -13,5 +13,4 @@
 
         getProducts();
     }
-
 })();
