@@ -1,15 +1,15 @@
 (function () {
     var token = "";
     angular.module('webshopModule')
-        .controller('loginCtrl', function ($http, $scope, $location) {
-            $scope.login = function (email, password) {
-                return $http.post('http://localhost:1337/user/login', {
-                    "email": email,
-                    "password": password
-                }).then(function (result) {
-                    token = result.data.token;
-                    $location.path("/");
-                });
+        .controller('loginCtrl', function ($http, $scope, $location, api) {
+            $scope.login = function () {
+                api.login($scope.email, $scope.password)
+                    .then(function () {
+                        $location.path("/");
+                    });
             }
         })
 })();
+
+
+
