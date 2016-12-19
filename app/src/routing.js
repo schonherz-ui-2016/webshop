@@ -9,7 +9,7 @@
                 })
                 .when('/product/:id', {
                     templateUrl: 'templates/productDetails.html',
-                    controller: 'ProductDetailsCtrl'
+                    controller: 'productDetailsCtrl'
                 })
                 .when('/login', {
                     templateUrl: 'templates/loginPage.html',
