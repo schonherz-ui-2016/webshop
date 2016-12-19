@@ -1,0 +1,16 @@
+<div id="feedback" ng-show="feedbackVisible">
+    <button type="button" ng-click="hideFeedback()">X</button>
+    <p ng-show="successfulFeedback">Registration was succesful.</p>
+    <p ng-show="unsuccessfulFeedback">Registration was not succesful.</p>
+    <button type="button" ng-click="hideFeedback()">Close</button>
+</div>
+
+<form>
+    <label>Name:</label>
+    <input placeholder="Enter Your Name" type="text" ng-model="newCustomer.name" required>
+    <label>E-mail:</label>
+    <input placeholder="Enter E-mail Address" type="text" ng-model="newCustomer.email" required>
+    <label>Password:</label>
+    <input placeholder="Enter Password" type="password" ng-model="newCustomer.password" required>
+    <input type="submit" value="Register" ng-click="addCustomer()"/>
+</form>
