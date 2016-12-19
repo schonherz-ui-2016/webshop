@@ -23,7 +23,6 @@
         };
 
         $scope.addCustomer = function () {
-            console.log($scope.newCustomer);
             api.registration($scope.newCustomer)
                 .then(function () {
                     showFeedback();
