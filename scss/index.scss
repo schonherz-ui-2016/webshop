@@ -26,7 +26,6 @@ body footer {
     height: 50px;
 }
 
-
 .product-details {
 
     a {
@@ -43,12 +42,12 @@ body footer {
     }
 }
 
-#productOrderForm {
+#ProductOrderForm {
     * {
-            margin: 10px;
-        }
-        #orderConfirm {
-            font-size: 20px;
-        }
+        margin: 10px;
     }
+    #OrderConfirm {
+        font-size: 20px;
+    }
+}
 
