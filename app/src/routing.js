@@ -18,6 +18,11 @@
                 .when('/order/:id', {
                     templateUrl: 'templates/orderPage.html',
                     controller: 'ProductDetailsCtrl'
+                })
+                .when('/registration', {
+                    templateUrl: 'templates/registrationPage.html',
+                    controller: 'RegistrationCtrl'
+
                 });
         })
 })();

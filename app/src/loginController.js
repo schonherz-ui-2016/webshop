@@ -1,19 +1,15 @@
 (function () {
     var token = "";
-    angular
-        .module('webshopModule')
-        .controller('LoginCtrl', LoginController);
-    function LoginController($http, $scope) {
-        $scope.login = function (email, password) {
-            $http.post('http://localhost:1337/user/login', {
-                "email": email,
-                "password": password
-            }).then(function (result) {
-                token = result.data.token;
-
-            }, function () {
-
-            });
-        }
-    }
+    angular.module('webshopModule')
+        .controller('loginCtrl', function ($http, $scope, $location, api) {
+            $scope.login = function () {
+                api.login($scope.email, $scope.password)
+                    .then(function () {
+                        $location.path("/");
+                    });
+            }
+        })
 })();
+
+
+
