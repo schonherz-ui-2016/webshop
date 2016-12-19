@@ -3,7 +3,7 @@
         .module('webshopModule')
         .controller('productListCtrl', ProductListController);
 
-    function ProductListController($http, $scope, api) {
+    function ProductListController($scope, api) {
         function getProducts() {
             api.getProducts()
                 .then(function (result) {

@@ -1,8 +1,5 @@
 (function () {
     var urlBase = 'http://localhost:1337';
-    angular
-        .module('webshopModule')
-        .service('api', apiService)
 
     function apiService($http) {
         this.getProducts = function () {
@@ -11,7 +8,12 @@
 
         this.getProductDetails = function (id) {
             return $http.get(urlBase + '/product/' + id);
-        }
-
+        };
+        
+        this.registration = function (customer) {
+            return $http.post(urlBase + '/user/register', customer);
+        };
     }
+
+    angular.module('webshopModule').service('api', apiService);
 })();

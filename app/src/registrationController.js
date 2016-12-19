@@ -2,7 +2,7 @@
     angular
         .module('webshopModule')
         .controller('RegistrationCtrl', RegistrationController);
-    function RegistrationController($http, $scope) {
+    function RegistrationController(api, $scope) {
 
         var showFeedback = function () {
             $scope.feedbackVisible = true;
@@ -22,19 +22,16 @@
             $scope.feedbackVisible = false;
         };
 
-        $scope.registration = function (name, email, password) {
-
-            $http.post('http://localhost:1337/user/register', {
-                "name": name,
-                "email": email,
-                "password": password
-            }).then(function () {
-                showFeedback();
-                successfulFeedback();
-            }, function () {
-                showFeedback();
-                unsuccessfulFeedback();
-            });
+        $scope.addCustomer = function () {
+            console.log($scope.newCustomer);
+            api.registration($scope.newCustomer)
+                .then(function () {
+                    showFeedback();
+                    successfulFeedback();
+                }, function () {
+                    showFeedback();
+                    unsuccessfulFeedback();
+                });
         }
     }
 })();
