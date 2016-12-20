@@ -1,0 +1,14 @@
+<form id="ProductOrderForm" class="container">
+    <div>
+        <label for="country">Country</label>
+        <input id="country" class="form-control" placeholder="Country" required>
+        <label for="city">City</label>
+        <input id="city" class="form-control" placeholder="City" required>
+        <label for="zip">ZIP</label>
+        <input id="zip" class="form-control" placeholder="Postal code" required>
+        <label for="street">Adress</label>
+        <input id="street" class="form-control" placeholder="Street name, house number" required>
+        <button class="btn btn-default">Send order</button>
+    </div>
+    <div id="OrderConfirm">You are about to order <a href="#/product/{{product.id}}">{{product.name}}</a> item</div>
+</form>

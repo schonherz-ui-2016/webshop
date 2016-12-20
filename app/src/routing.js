@@ -5,19 +5,24 @@
             $routeProvider
                 .when('/', {
                     templateUrl: 'templates/main.html',
-                    controller: 'productListCtrl'
+                    controller: 'ProductListCtrl'
                 })
                 .when('/product/:id', {
                     templateUrl: 'templates/productDetails.html',
-                    controller: 'productDetailsCtrl'
+                    controller: 'ProductDetailsCtrl'
                 })
                 .when('/login', {
                     templateUrl: 'templates/loginPage.html',
-                    controller: 'loginCtrl'
+                    controller: 'LoginCtrl'
+                })
+                .when('/order/:id', {
+                    templateUrl: 'templates/orderPage.html',
+                    controller: 'ProductDetailsCtrl'
                 })
                 .when('/registration', {
                     templateUrl: 'templates/registrationPage.html',
                     controller: 'RegistrationCtrl'
+
                 });
         })
 })();
