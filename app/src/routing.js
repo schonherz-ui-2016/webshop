@@ -22,7 +22,9 @@
                 .when('/registration', {
                     templateUrl: 'templates/registrationPage.html',
                     controller: 'registrationCtrl'
-
+                })
+                .otherwise({
+                    redirectTo: '/'
                 });
         })
 })();
