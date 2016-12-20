@@ -18,6 +18,9 @@
                 .when('/registration', {
                     templateUrl: 'templates/registrationPage.html',
                     controller: 'RegistrationCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
                 });
         })
 })();
