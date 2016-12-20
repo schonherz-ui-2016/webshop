@@ -5,23 +5,23 @@
             $routeProvider
                 .when('/', {
                     templateUrl: 'templates/main.html',
-                    controller: 'ProductListCtrl'
+                    controller: 'productListCtrl'
                 })
                 .when('/product/:id', {
                     templateUrl: 'templates/productDetails.html',
-                    controller: 'ProductDetailsCtrl'
+                    controller: 'productDetailsCtrl'
                 })
                 .when('/login', {
                     templateUrl: 'templates/loginPage.html',
-                    controller: 'LoginCtrl'
+                    controller: 'loginCtrl'
                 })
                 .when('/order/:id', {
                     templateUrl: 'templates/orderPage.html',
-                    controller: 'ProductDetailsCtrl'
+                    controller: 'orderFormCtrl'
                 })
                 .when('/registration', {
                     templateUrl: 'templates/registrationPage.html',
-                    controller: 'RegistrationCtrl'
+                    controller: 'registrationCtrl'
 
                 });
         })

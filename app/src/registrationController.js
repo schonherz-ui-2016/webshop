@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('webshopModule')
-        .controller('RegistrationCtrl', RegistrationController);
+        .controller('registrationCtrl', RegistrationController);
     function RegistrationController(api, $scope) {
 
         var showFeedback = function () {
