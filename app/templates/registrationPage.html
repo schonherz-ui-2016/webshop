@@ -12,80 +12,80 @@
 
 <div id="registration" class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Registration</h1>
-    <form name="myForm" ng-submit="register(newCustomer)" novalidate>
+    <form name="regForm" ng-submit="register(newCustomer)" novalidate>
 
         <div class="form-group has-feedback"
-             ng-class="{ 'has-success': myForm.name.$touched && myForm.name.$valid, 'has-error': myForm.name.$touched && myForm.name.$invalid }">
+             ng-class="{ 'has-success': regForm.name.$touched && regForm.name.$valid, 'has-error': regForm.name.$touched && regForm.name.$invalid }">
             <label>Name:</label>
             <input id="asd" type="text" class="form-control" name="name" placeholder="Enter your name"
                    ng-model="newCustomer.name" required>
-            <span ng-show="myForm.name.$touched && myForm.name.$valid"
+            <span ng-show="regForm.name.$touched && regForm.name.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
             <span
-                ng-show="myForm.name.$touched && myForm.name.$error.required"
+                ng-show="regForm.name.$touched && regForm.name.$error.required"
                 class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="myForm.$submitted || myForm.name.$touched">
-                <div class="warn" ng-show="myForm.name.$error.required">Tell us your name.</div>
+            <div ng-show="regForm.$submitted || regForm.name.$touched">
+                <div class="warn" ng-show="regForm.name.$error.required">Tell us your name.</div>
             </div>
         </div>
 
         <div class="form-group has-feedback"
-             ng-class="{ 'has-success': myForm.email.$touched && myForm.email.$valid, 'has-error': myForm.email.$touched && myForm.email.$invalid }">
+             ng-class="{ 'has-success': regForm.email.$touched && regForm.email.$valid, 'has-error': regForm.email.$touched && regForm.email.$invalid }">
             <label>Email:</label>
             <input type="email" class="form-control" name="email" placeholder="Enter your email"
                    ng-model="newCustomer.email" required>
-            <span ng-show="myForm.email.$touched && myForm.email.$valid"
+            <span ng-show="regForm.email.$touched && regForm.email.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
             <span
-                ng-show="myForm.email.$touched && myForm.email.$error.email || myForm.email.$touched && myForm.email.$error.required"
+                ng-show="regForm.email.$touched && regForm.email.$error.email || regForm.email.$touched && regForm.email.$error.required"
                 class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="myForm.$submitted || myForm.email.$touched">
-                <div class="warn" ng-show="myForm.email.$error.required">Tell us your email.</div>
-                <div class="warn" ng-show="myForm.email.$error.email">This is not a valid email.</div>
+            <div ng-show="regForm.$submitted || regForm.email.$touched">
+                <div class="warn" ng-show="regForm.email.$error.required">Tell us your email.</div>
+                <div class="warn" ng-show="regForm.email.$error.email">This is not a valid email.</div>
             </div>
         </div>
 
         <div class="form-group has-feedback"
-             ng-class="{ 'has-success': myForm.pwd.$touched && myForm.pwd.$valid, 'has-error': myForm.pwd.$touched && myForm.pwd.$invalid }">
+             ng-class="{ 'has-success': regForm.pwd.$touched && regForm.pwd.$valid, 'has-error': regForm.pwd.$touched && regForm.pwd.$invalid }">
             <label>Password:</label>
             <input type="password" minlength="8" class="form-control" name="pwd"
                    placeholder="Enter password (at least 8 characters)"
                    ng-model="newCustomer.password" required>
-            <span ng-show="myForm.pwd.$touched && myForm.pwd.$valid"
+            <span ng-show="regForm.pwd.$touched && regForm.pwd.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
             <span
-                ng-show="myForm.pwd.$touched && myForm.pwd.$invalid || myForm.pwd.$touched && myForm.pwd.$error.required"
+                ng-show="regForm.pwd.$touched && regForm.pwd.$invalid || regForm.pwd.$touched && regForm.pwd.$error.required"
                 class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="myForm.$submitted || myForm.pwd.$touched">
-                <div class="warn" ng-show="myForm.pwd.$error.required">Tell us your password.</div>
-                <div class="warn" ng-show="myForm.pwd.$invalid && myForm.pwd.$dirty && !myForm.pwd.$error.required">
+            <div ng-show="regForm.$submitted || regForm.pwd.$touched">
+                <div class="warn" ng-show="regForm.pwd.$error.required">Tell us your password.</div>
+                <div class="warn" ng-show="regForm.pwd.$invalid && regForm.pwd.$dirty && !regForm.pwd.$error.required">
                     Password must be at least 8 characters.
                 </div>
             </div>
         </div>
 
         <div class="form-group has-feedback"
-             ng-class="{ 'has-success': myForm.repwd.$touched && myForm.repwd.$valid, 'has-error': myForm.repwd.$touched && myForm.repwd.$invalid }">
+             ng-class="{ 'has-success': regForm.repwd.$touched && regForm.repwd.$valid && regForm.pwd.$valid, 'has-error': regForm.repwd.$touched && regForm.repwd.$invalid }">
             <label>Confirm password:</label>
-            <input type="password" class="form-control" name="repwd"
+            <input type="password" minlength="8" class="form-control" name="repwd"
                    placeholder="Enter password again" ng-model="newCustomer.repassword"
                    ng-pattern="{{newCustomer.password}}" required>
-            <span ng-show="myForm.repwd.$touched && myForm.repwd.$valid"
+            <span ng-show="regForm.repwd.$touched && regForm.repwd.$valid && regForm.pwd.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
             <span
-                ng-show="myForm.repwd.$touched && myForm.repwd.$invalid || myForm.repwd.$touched && myForm.repwd.$error.required"
+                ng-show="regForm.repwd.$touched && regForm.repwd.$invalid || regForm.repwd.$touched && regForm.repwd.$error.required"
                 class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="myForm.$submitted || myForm.repwd.$touched">
-                <div class="warn" ng-show="myForm.repwd.$error.required">Tell us your password again.</div>
+            <div ng-show="regForm.$submitted || regForm.repwd.$touched">
+                <div class="warn" ng-show="regForm.repwd.$error.required">Tell us your password again.</div>
                 <div class="warn"
-                     ng-show="myForm.repwd.$invalid && myForm.repwd.$dirty && !myForm.repwd.$error.required && myForm.pwd.$valid">
+                     ng-show="regForm.repwd.$invalid && regForm.repwd.$dirty && !regForm.repwd.$error.required && regForm.pwd.$valid">
                     Password does not match the Confirm password.
                 </div>
             </div>
         </div>
 
         <button id="regButton" type="submit"
-                ng-disabled="myForm.name.$invalid || myForm.email.$invalid || myForm.pwd.$invalid || myForm.repwd.$invalid"
+                ng-disabled="regForm.name.$invalid || regForm.email.$invalid || regForm.pwd.$invalid || regForm.repwd.$invalid"
                 class="btn btn-primary">Register
         </button>
     </form>
