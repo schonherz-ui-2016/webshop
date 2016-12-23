@@ -2,7 +2,17 @@
     angular
         .module('webshopModule')
         .controller('RegistrationCtrl', RegistrationController);
-    function RegistrationController(api, $scope) {
+    function RegistrationController(api, $scope, $location) {
+        $scope.register = function (customer) {
+            api.registration(customer)
+                .then(function () {
+                    showFeedback();
+                    successfulFeedback();
+                }, function () {
+                    showFeedback();
+                    unsuccessfulFeedback();
+                });
+        };
 
         var showFeedback = function () {
             $scope.feedbackVisible = true;
@@ -20,17 +30,9 @@
 
         $scope.hideFeedback = function () {
             $scope.feedbackVisible = false;
+            if ($scope.successfulFeedback == true) {
+                $location.path("/login");
+            }
         };
-
-        $scope.addCustomer = function () {
-            api.registration($scope.newCustomer)
-                .then(function () {
-                    showFeedback();
-                    successfulFeedback();
-                }, function () {
-                    showFeedback();
-                    unsuccessfulFeedback();
-                });
-        }
     }
 })();

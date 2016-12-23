@@ -1,16 +1,94 @@
-<div id="feedback" ng-show="feedbackVisible">
-    <button type="button" ng-click="hideFeedback()">X</button>
-    <p ng-show="successfulFeedback">Registration was succesful.</p>
-    <p ng-show="unsuccessfulFeedback">Registration was not succesful.</p>
-    <button type="button" ng-click="hideFeedback()">Close</button>
+<div id="feedbackFrame" ng-show="feedbackVisible">
+    <div id="feedback" class="col-md-4 col-sm-8 col-xs-12">
+        <div>
+            <p>Feedback</p>
+            <button type="button" class="btn btn-danger" ng-click="hideFeedback()">X</button>
+        </div>
+        <p ng-show="successfulFeedback">Registration was succesful.</p>
+        <p ng-show="unsuccessfulFeedback">Registration was not succesful.</p>
+        <button type="button" class="btn btn-primary" ng-click="hideFeedback()">Close</button>
+    </div>
 </div>
 
-<form>
-    <label>Name:</label>
-    <input placeholder="Enter Your Name" type="text" ng-model="newCustomer.name" required>
-    <label>E-mail:</label>
-    <input placeholder="Enter E-mail Address" type="text" ng-model="newCustomer.email" required>
-    <label>Password:</label>
-    <input placeholder="Enter Password" type="password" ng-model="newCustomer.password" required>
-    <input type="submit" value="Register" ng-click="addCustomer()"/>
-</form>
+<div id="registration" class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
+    <h1>Registration</h1>
+    <form name="myForm" ng-submit="register(newCustomer)" novalidate>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': myForm.name.$touched && myForm.name.$valid, 'has-error': myForm.name.$touched && myForm.name.$invalid }">
+            <label>Name:</label>
+            <input id="asd" type="text" class="form-control" name="name" placeholder="Enter your name"
+                   ng-model="newCustomer.name" required>
+            <span ng-show="myForm.name.$touched && myForm.name.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="myForm.name.$touched && myForm.name.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="myForm.$submitted || myForm.name.$touched">
+                <div class="warn" ng-show="myForm.name.$error.required">Tell us your name.</div>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': myForm.email.$touched && myForm.email.$valid, 'has-error': myForm.email.$touched && myForm.email.$invalid }">
+            <label>Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter your email"
+                   ng-model="newCustomer.email" required>
+            <span ng-show="myForm.email.$touched && myForm.email.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="myForm.email.$touched && myForm.email.$error.email || myForm.email.$touched && myForm.email.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="myForm.$submitted || myForm.email.$touched">
+                <div class="warn" ng-show="myForm.email.$error.required">Tell us your email.</div>
+                <div class="warn" ng-show="myForm.email.$error.email">This is not a valid email.</div>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': myForm.pwd.$touched && myForm.pwd.$valid, 'has-error': myForm.pwd.$touched && myForm.pwd.$invalid }">
+            <label>Password:</label>
+            <input type="password" minlength="8" class="form-control" name="pwd"
+                   placeholder="Enter password (at least 8 characters)"
+                   ng-model="newCustomer.password" required>
+            <span ng-show="myForm.pwd.$touched && myForm.pwd.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="myForm.pwd.$touched && myForm.pwd.$invalid || myForm.pwd.$touched && myForm.pwd.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="myForm.$submitted || myForm.pwd.$touched">
+                <div class="warn" ng-show="myForm.pwd.$error.required">Tell us your password.</div>
+                <div class="warn" ng-show="myForm.pwd.$invalid && myForm.pwd.$dirty && !myForm.pwd.$error.required">
+                    Password must be at least 8 characters.
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': myForm.repwd.$touched && myForm.repwd.$valid, 'has-error': myForm.repwd.$touched && myForm.repwd.$invalid }">
+            <label>Confirm password:</label>
+            <input type="password" class="form-control" name="repwd"
+                   placeholder="Enter password again" ng-model="newCustomer.repassword"
+                   ng-pattern="{{newCustomer.password}}" required>
+            <span ng-show="myForm.repwd.$touched && myForm.repwd.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="myForm.repwd.$touched && myForm.repwd.$invalid || myForm.repwd.$touched && myForm.repwd.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="myForm.$submitted || myForm.repwd.$touched">
+                <div class="warn" ng-show="myForm.repwd.$error.required">Tell us your password again.</div>
+                <div class="warn"
+                     ng-show="myForm.repwd.$invalid && myForm.repwd.$dirty && !myForm.repwd.$error.required && myForm.pwd.$valid">
+                    Password does not match the Confirm password.
+                </div>
+            </div>
+        </div>
+
+        <button id="regButton" type="submit"
+                ng-disabled="myForm.name.$invalid || myForm.email.$invalid || myForm.pwd.$invalid || myForm.repwd.$invalid"
+                class="btn btn-primary">Register
+        </button>
+    </form>
+    <p>By creating an account, you agree to Webshop's Conditions of Use and Privacy Notice.</p>
+    <p>Already have an account? <a href="#/login">Sign in</a></p>
+</div>
