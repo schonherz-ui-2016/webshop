@@ -1,71 +1,70 @@
 <form id="product-order-form" class="container" name="orderForm" novalidate>
-        <div class="form-group has-feedback"
-             ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
-            <label for="country">Country</label>
-            <input id="country" name="country" type="text" ng-model="order.country" class="form-control"
-                   placeholder="Country" required>
-            <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
-                  class="glyphicon glyphicon-ok form-control-feedback"></span>
-            <span
-                ng-show="orderForm.country.$touched && orderForm.country.$error.required"
-                class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="orderForm.$submitted || orderForm.country.$touched">
-                <div ng-show="orderForm.country.$error.required" class="warn">This field is required.</div>
-            </div>
+    <div class="form-group has-feedback"
+         ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
+        <label for="country">Country</label>
+        <input id="country" name="country" type="text" ng-model="order.country" class="form-control"
+               placeholder="Country" required>
+        <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
+              class="glyphicon glyphicon-ok form-control-feedback"></span>
+        <span
+            ng-show="orderForm.country.$touched && orderForm.country.$error.required"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+        <div ng-show="orderForm.$submitted || orderForm.country.$touched">
+            <p ng-show="orderForm.country.$error.required" class="warn">Tell us your country.</p>
         </div>
+    </div>
 
-        <div class="form-group has-feedback"
-             ng-class="{ 'has-success': orderForm.city.$touched && orderForm.city.$valid, 'has-error': orderForm.city.$touched && orderForm.city.$invalid }">
-            <label for="city">City</label>
-            <input id="city" name="city" type="text" ng-model="order.city" class="form-control" placeholder="City"
-                   required>
-            <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
-                  class="glyphicon glyphicon-ok form-control-feedback"></span>
-            <span
-                ng-show="orderForm.city.$touched && orderForm.city.$error.required"
-                class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="orderForm.$submitted || orderForm.city.$touched">
-                <div ng-show="orderForm.city.$error.required" class="warn">This field is required.</div>
-            </div>
+    <div class="form-group has-feedback"
+         ng-class="{ 'has-success': orderForm.city.$touched && orderForm.city.$valid, 'has-error': orderForm.city.$touched && orderForm.city.$invalid }">
+        <label for="city">City</label>
+        <input id="city" name="city" type="text" ng-model="order.city" class="form-control" placeholder="City"
+               required>
+        <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
+              class="glyphicon glyphicon-ok form-control-feedback"></span>
+        <span
+            ng-show="orderForm.city.$touched && orderForm.city.$error.required"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+        <div ng-show="orderForm.$submitted || orderForm.city.$touched">
+            <p ng-show="orderForm.city.$error.required" class="warn">Tell us your city.</p>
         </div>
+    </div>
 
-        <div class="form-group has-feedback"
-             ng-class="{ 'has-success': orderForm.zip.$touched && orderForm.zip.$valid, 'has-error': orderForm.zip.$touched && orderForm.zip.$invalid }">
-            <label for="zip">ZIP</label>
-            <input id="zip" name="zip" type="text" ng-model="order.zip" ng-pattern="/^[0-9]{5}(-[0-9]{4})?$/g"
-                   class="form-control"
-                   placeholder="Postal code (US)" required>
-            <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
-                  class="glyphicon glyphicon-ok form-control-feedback"></span>
-            <span
-                ng-show="orderForm.zip.$touched && orderForm.zip.$error.email || orderForm.zip.$touched && orderForm.zip.$error.required"
-                class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="orderForm.$submitted || orderForm.zip.$touched">
-                <div ng-show="orderForm.zip.$error.required" class="warn">This field is required.</div>
-                <div ng-show="orderForm.zip.$invalid && !orderForm.zip.$error.required" class="warn">This is not a valid
-                    ZIP code.
-                </div>
-            </div>
+    <div class="form-group has-feedback"
+         ng-class="{ 'has-success': orderForm.zip.$touched && orderForm.zip.$valid, 'has-error': orderForm.zip.$touched && orderForm.zip.$invalid }">
+        <label for="zip">ZIP</label>
+        <input id="zip" name="zip" type="text" ng-model="order.zip" ng-pattern="/^[0-9]{5}(-[0-9]{4})?$/g"
+               class="form-control"
+               placeholder="Postal code (US)" required>
+        <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
+              class="glyphicon glyphicon-ok form-control-feedback"></span>
+        <span
+            ng-show="orderForm.zip.$touched && orderForm.zip.$error.email || orderForm.zip.$touched && orderForm.zip.$error.required"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+        <div ng-show="orderForm.$submitted || orderForm.zip.$touched">
+            <p ng-show="orderForm.zip.$error.required" class="warn">Tell us your ZIP code.</p>
+            <p ng-show="orderForm.zip.$invalid && !orderForm.zip.$error.required" class="warn">This is not a valid
+                ZIP code.
+            </p>
         </div>
+    </div>
 
-        <div class="form-group has-feedback"
-             ng-class="{ 'has-success': orderForm.street.$touched && orderForm.street.$valid, 'has-error': orderForm.street.$touched && orderForm.street.$invalid }">
-            <label for="street">Adress</label>
-            <input id="street" name="street" type="text" ng-model="order.street" class="form-control"
-                   placeholder="Street name, house number" required>
-            <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
-                  class="glyphicon glyphicon-ok form-control-feedback"></span>
-            <span
-                ng-show="orderForm.street.$touched && orderForm.street.$error.required"
-                class="glyphicon glyphicon-remove form-control-feedback"></span>
-            <div ng-show="orderForm.$submitted || orderForm.street.$touched">
-                <div ng-show="orderForm.street.$error.required" class="warn">This field is required.</div>
-            </div>
+    <div class="form-group has-feedback"
+         ng-class="{ 'has-success': orderForm.street.$touched && orderForm.street.$valid, 'has-error': orderForm.street.$touched && orderForm.street.$invalid }">
+        <label for="street">Adress</label>
+        <input id="street" name="street" type="text" ng-model="order.street" class="form-control"
+               placeholder="Street name, house number" required>
+        <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
+              class="glyphicon glyphicon-ok form-control-feedback"></span>
+        <span
+            ng-show="orderForm.street.$touched && orderForm.street.$error.required"
+            class="glyphicon glyphicon-remove form-control-feedback"></span>
+        <div ng-show="orderForm.$submitted || orderForm.street.$touched">
+            <p ng-show="orderForm.street.$error.required" class="warn">Tell us your adress.</p>
         </div>
+    </div>
 
-        <button type="submit"
-                ng-disabled="orderForm.country.$invalid || orderForm.city.$invalid || orderForm.zip.$invalid || orderForm.street.$invalid"
-                class="btn btn-default">Send order
-        </button>
+    <button type="submit"
+            ng-disabled="orderForm.$invalid" class="btn btn-default">Send order
+    </button>
     <div id="order-confirm">You are about to order <a href="#/product/{{product.id}}">{{product.name}}</a> item</div>
 </form>

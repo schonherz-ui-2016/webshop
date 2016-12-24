@@ -4,14 +4,16 @@
         .controller('registrationCtrl', RegistrationController);
     function RegistrationController(api, $scope, $location) {
         $scope.register = function (customer) {
-            api.registration(customer)
-                .then(function () {
-                    showFeedback();
-                    successfulFeedback();
-                }, function () {
-                    showFeedback();
-                    unsuccessfulFeedback();
-                });
+            if ($scope.regForm.$valid) {
+                api.registration(customer)
+                    .then(function () {
+                        showFeedback();
+                        successfulFeedback();
+                    }, function () {
+                        showFeedback();
+                        unsuccessfulFeedback();
+                    });
+            }
         };
 
         var showFeedback = function () {
