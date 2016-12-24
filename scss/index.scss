@@ -64,14 +64,6 @@ body footer {
     > form {
         display: flex;
         flex-direction: column;
-        > div {
-            > div {
-                .warn {
-                    color: red;
-                    margin-top: 10px;
-                }
-            }
-        }
         #regButton {
             margin-bottom: 15px;
         }
@@ -118,5 +110,12 @@ body footer {
             margin: 8px 0 8px;
             padding: 15px;
         }
+    }
+}
+
+ng-view {
+    .warn {
+        color: red;
+        margin-top: 10px;
     }
 }
