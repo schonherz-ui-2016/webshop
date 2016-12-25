@@ -20,10 +20,20 @@ nav.navbar {
     }
 }
 
-body footer {
-    background-color: #444444;
-    width: 100%;
-    height: 50px;
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    ng-view {
+        flex: 1;
+    }
+
+    footer {
+        background-color: #444444;
+        width: 100%;
+        height: 50px;
+    }
 }
 
 .product-details {
@@ -54,6 +64,8 @@ body footer {
     border: 1px solid lightgrey;
     border-radius: 5px;
     box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 20px;
     padding: 10px;
     z-index: 1;
     > h1 {
