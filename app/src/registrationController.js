@@ -2,22 +2,20 @@
     angular
         .module('webshopModule')
         .controller('registrationCtrl', RegistrationController);
-    function RegistrationController(api, $scope, $location) {
+    function RegistrationController(api, $scope, $location, $timeout) {
         $scope.register = function (customer) {
-            if ($scope.regForm.$valid) {
-                api.registration(customer)
-                    .then(function () {
-                        showFeedback();
-                        successfulFeedback();
-                    }, function () {
-                        showFeedback();
-                        unsuccessfulFeedback();
-                    });
-            }
+            api.registration(customer)
+                .then(function () {
+                    successfulFeedback();
+                }, function () {
+                    unsuccessfulFeedback();
+                });
         };
 
-        var showFeedback = function () {
-            $scope.feedbackVisible = true;
+        $scope.showModal = function () {
+            if ($scope.regForm.$valid) {
+                $('#regButton').attr("data-toggle", "modal");
+            }
         };
 
         var successfulFeedback = function () {
@@ -30,10 +28,11 @@
             $scope.successfulFeedback = false;
         };
 
-        $scope.hideFeedback = function () {
-            $scope.feedbackVisible = false;
+        $scope.redirection = function () {
             if ($scope.successfulFeedback == true) {
-                $location.path("/login");
+                $timeout(function () {
+                    $location.path("/login")
+                }, 300);
             }
         };
     }
