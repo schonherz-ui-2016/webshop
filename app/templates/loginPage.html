@@ -1,4 +1,4 @@
-<form ng-submit="login(email, password)">
+<form ng-hide="session.authenticated" ng-submit="login(email, password)">
     <label>E-mail:</label>
     <input placeholder="Enter E-mail Address" type="text" ng-model="email" required>
     <label>Password:</label>

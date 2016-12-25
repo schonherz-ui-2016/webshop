@@ -19,7 +19,7 @@
                 "email": email,
                 "password": password
             }).then(function (result) {
-                token = result.data.token;
+                return result.data.token;
             });
         }
     }

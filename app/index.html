@@ -8,11 +8,11 @@
 </head>
 <body ng-app="webshopModule">
 <nav class="navbar navbar-default">
-    <div class="container">
+    <div class="container" ng-controller="headerCtrl">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img src="http://lorempixel.com/120/40/abstract/" alt="Company Logo"></a>
+            <a class="navbar-brand" href="#"><img alt="Company Logo"></a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul ng-hide="session.authenticated" class="nav navbar-nav navbar-right">
             <li><a href="#/registration">Sign Up</a></li>
             <li><a href="#/login">Log In</a></li>
         </ul>
@@ -33,5 +33,8 @@
 <script src="src/routing.js"></script>
 <script src="src/loginController.js"></script>
 <script src="src/registrationController.js"></script>
+<script src="src/orderFormController.js"></script>
+<script src="src/headerController.js"></script>
+<script src="src/loginService.js"></script>
 </body>
 </html>

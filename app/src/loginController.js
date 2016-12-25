@@ -1,12 +1,14 @@
 (function () {
-    var token = "";
+
     angular.module('webshopModule')
-        .controller('loginCtrl', function ($scope, $location, api) {
+        .controller('loginCtrl', function ($scope, $location, loginService) {
+
             $scope.login = function () {
-                api.login($scope.email, $scope.password)
+                loginService.login($scope.email, $scope.password)
                     .then(function () {
-                        $location.path("/");
+                        $location.path("/authenticated");
                     });
+
             }
         })
 })();

@@ -15,9 +15,20 @@
                     templateUrl: 'templates/loginPage.html',
                     controller: 'loginCtrl'
                 })
+                .when('/authenticated',{
+                    templateUrl: 'templates/loginPage.html',
+                    controller: 'headerCtrl'
+                })
+                .when('/order/:id', {
+                    templateUrl: 'templates/orderPage.html',
+                    controller: 'orderFormCtrl'
+                })
                 .when('/registration', {
                     templateUrl: 'templates/registrationPage.html',
-                    controller: 'RegistrationCtrl'
+                    controller: 'registrationCtrl'
+                })
+                .otherwise({
+                    redirectTo: '/'
                 });
         })
 })();
