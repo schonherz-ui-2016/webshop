@@ -1,13 +1,21 @@
-<div id="feedbackFrame" ng-show="feedbackVisible">
-    <div id="feedback" class="col-md-4 col-sm-8 col-xs-12">
-        <div>
-            <p>Feedback</p>
-            <button type="button" class="btn btn-danger" ng-click="hideFeedback()">X</button>
+<div class="modal fade" id="regFeedback" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Feedback</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-show="successfulFeedback">Registration was succesful.</p>
+                <p ng-show="unsuccessfulFeedback">The email address you specified is already in use. (Do you already
+                    have an
+                    account?)</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="redirection()">Close
+                </button>
+            </div>
         </div>
-        <p ng-show="successfulFeedback">Registration was succesful.</p>
-        <p ng-show="unsuccessfulFeedback">The email address you specified is already in use. (Do you already have an
-            account?)</p>
-        <button type="button" class="btn btn-primary" ng-click="hideFeedback()">Close</button>
     </div>
 </div>
 
@@ -87,7 +95,7 @@
 
         <button id="regButton" type="submit"
                 ng-disabled="regForm.name.$invalid || regForm.email.$invalid || regForm.pwd.$invalid"
-                class="btn btn-primary">Register
+                class="btn btn-primary" data-target="#regFeedback" ng-click="showModal()">Register
         </button>
     </form>
     <p>By creating an account, you agree to Webshop's Conditions of Use and Privacy Notice.</p>
