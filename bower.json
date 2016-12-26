@@ -10,11 +10,15 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "app/bower_components"
   ],
   "dependencies": {
     "angular": "~1.5.9",
     "angular-route": "~1.5.9",
     "bootstrap": "^3.3.7"
-  }
+  },
+  "authors": [
+    "Marton Krisztian Zsolt <krisztianm@mailbox.unideb.hu>"
+  ]
 }
