@@ -31,7 +31,7 @@
         $scope.redirection = function () {
             if ($scope.successfulFeedback == true) {
                 $timeout(function () {
-                    $location.path("/login")
+                    $location.path("/login");
                 }, 300);
             }
         };

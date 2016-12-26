@@ -1,8 +1,27 @@
-<form id="product-order-form" class="container" name="orderForm" novalidate>
+<div class="modal fade" id="orderFeedback" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="redirection()">&times;</button>
+                <h4 class="modal-title">Feedback</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-show="successfulOrder">Order was succesful.</p>
+                <p ng-show="unsuccessfulOrder">Order was not succesful.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="redirection()">Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name="orderForm" ng-submit="order(newOrder, product.name)" id="product-order-form" class="container" novalidate>
     <div class="form-group has-feedback"
          ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
         <label for="country">Country</label>
-        <input id="country" name="country" type="text" ng-model="order.country" class="form-control"
+        <input id="country" name="country" type="text" ng-model="newOrder.country" class="form-control"
                placeholder="Country" required>
         <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
               class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -17,7 +36,7 @@
     <div class="form-group has-feedback"
          ng-class="{ 'has-success': orderForm.city.$touched && orderForm.city.$valid, 'has-error': orderForm.city.$touched && orderForm.city.$invalid }">
         <label for="city">City</label>
-        <input id="city" name="city" type="text" ng-model="order.city" class="form-control" placeholder="City"
+        <input id="city" name="city" type="text" ng-model="newOrder.city" class="form-control" placeholder="City"
                required>
         <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
               class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -32,7 +51,7 @@
     <div class="form-group has-feedback"
          ng-class="{ 'has-success': orderForm.zip.$touched && orderForm.zip.$valid, 'has-error': orderForm.zip.$touched && orderForm.zip.$invalid }">
         <label for="zip">ZIP</label>
-        <input id="zip" name="zip" type="text" ng-model="order.zip" ng-pattern="/^[0-9]{5}(-[0-9]{4})?$/g"
+        <input id="zip" name="zip" type="text" ng-model="newOrder.zip" ng-pattern="/^[0-9]{5}(-[0-9]{4})?$/g"
                class="form-control"
                placeholder="Postal code (US)" required>
         <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
@@ -51,7 +70,7 @@
     <div class="form-group has-feedback"
          ng-class="{ 'has-success': orderForm.street.$touched && orderForm.street.$valid, 'has-error': orderForm.street.$touched && orderForm.street.$invalid }">
         <label for="street">Adress</label>
-        <input id="street" name="street" type="text" ng-model="order.street" class="form-control"
+        <input id="street" name="street" type="text" ng-model="newOrder.street" class="form-control"
                placeholder="Street name, house number" required>
         <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
               class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -63,8 +82,8 @@
         </div>
     </div>
 
-    <button type="submit"
-            ng-disabled="orderForm.$invalid" class="btn btn-default">Send order
+    <button id="orderButton" type="submit" ng-disabled="orderForm.$invalid" class="btn btn-default"
+            data-target="#orderFeedback" ng-click="showModal()">Send order
     </button>
     <div id="order-confirm">You are about to order <a href="#/product/{{product.id}}">{{product.name}}</a> item</div>
 </form>
