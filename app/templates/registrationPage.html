@@ -57,7 +57,7 @@
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': regForm.pwd.$touched && regForm.pwd.$valid, 'has-error': regForm.pwd.$touched && regForm.pwd.$invalid }">
             <label>Password:</label>
-            <input type="password" minlength="8" class="form-control" name="pwd"
+            <input type="password" ng-minlength="8" class="form-control" name="pwd"
                    placeholder="Enter password (at least 8 characters)"
                    ng-model="newCustomer.password" required>
             <span ng-show="regForm.pwd.$touched && regForm.pwd.$valid"
@@ -76,9 +76,8 @@
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': regForm.repwd.$touched && regForm.repwd.$valid && regForm.pwd.$valid, 'has-error': regForm.repwd.$touched && regForm.repwd.$invalid }">
             <label>Confirm password:</label>
-            <input type="password" minlength="8" class="form-control" name="repwd"
-                   placeholder="Enter password again" ng-model="newCustomer.repassword"
-                   ng-pattern="{{newCustomer.password}}" required>
+            <input type="password" ng-minlength="8" class="form-control" name="repwd" placeholder="Enter password again"
+                   ng-model="newCustomer.repassword" password-match="newCustomer.password" required>
             <span ng-show="regForm.repwd.$touched && regForm.repwd.$valid && regForm.pwd.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
             <span
@@ -95,7 +94,8 @@
 
         <button id="regButton" type="submit"
                 ng-disabled="regForm.name.$invalid || regForm.email.$invalid || regForm.pwd.$invalid"
-                class="btn btn-primary" data-target="#regFeedback" ng-click="showModal()">Register
+                class="btn btn-primary" data-target="#regFeedback" data-toggle="{{modalVisible}}"
+                ng-click="showModal()">Register
         </button>
     </form>
     <p>By creating an account, you agree to Webshop's Conditions of Use and Privacy Notice.</p>
