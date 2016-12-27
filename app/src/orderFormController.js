@@ -24,7 +24,7 @@
 
         $scope.showModal = function () {
             if ($scope.orderForm.$valid) {
-                $('#orderButton').attr("data-toggle", "modal");
+                $scope.modalVisible = "modal";
             }
         };
 
@@ -39,10 +39,13 @@
         };
 
         $scope.redirection = function () {
-            if ($scope.successfulOrder == true) {
+            if ($scope.successfulOrder) {
                 $timeout(function () {
                     $location.path("/");
                 }, 300);
+            }
+            else if ($scope.unsuccessfulOrder) {
+                $scope.modalVisible = "";
             }
         };
     }

@@ -14,7 +14,7 @@
 
         $scope.showModal = function () {
             if ($scope.regForm.$valid) {
-                $('#regButton').attr("data-toggle", "modal");
+                $scope.modalVisible = "modal";
             }
         };
 
@@ -29,10 +29,13 @@
         };
 
         $scope.redirection = function () {
-            if ($scope.successfulFeedback == true) {
+            if ($scope.successfulFeedback) {
                 $timeout(function () {
-                    $location.path("/login");
+                    $location.path("/login")
                 }, 300);
+            }
+            else if ($scope.unsuccessfulFeedback) {
+                $scope.modalVisible = "";
             }
         };
     }
