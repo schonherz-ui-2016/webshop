@@ -19,14 +19,14 @@
     </div>
 </div>
 
-<div id="registration" class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
+<div id="registration" class="formStyle col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Registration</h1>
     <form name="regForm" ng-submit="register(newCustomer)" novalidate>
 
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': regForm.name.$touched && regForm.name.$valid, 'has-error': regForm.name.$touched && regForm.name.$invalid }">
             <label>Name:</label>
-            <input id="asd" type="text" class="form-control" name="name" placeholder="Enter your name"
+            <input type="text" class="form-control" name="name" placeholder="Enter your name"
                    ng-model="newCustomer.name" required>
             <span ng-show="regForm.name.$touched && regForm.name.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>

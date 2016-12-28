@@ -51,23 +51,22 @@ body {
     }
 }
 
-#product-order-form {
+/*#product-order-form {
     * {
         margin: 10px;
     }
     #order-confirm {
         font-size: 20px;
     }
-}
+}*/
 
-#registration {
+.formStyle {
     border: 1px solid lightgrey;
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 10px;
-    z-index: 1;
     > h1 {
         font-weight: bold;
         margin: 0 0 20px;
@@ -76,7 +75,7 @@ body {
     > form {
         display: flex;
         flex-direction: column;
-        #regButton {
+        > button {
             margin-bottom: 15px;
         }
     }
