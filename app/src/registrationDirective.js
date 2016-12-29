@@ -8,7 +8,7 @@
                 require: 'ngModel',
                 link: function (scope, elem, attrs, control) {
                     var checker = function () {
-                        var pwd1 = scope.$eval(attrs.ngModel);
+                        var pwd1 = control.$modelValue;
                         var pwd2 = scope.$eval(attrs.passwordMatch);
                         return pwd1 == pwd2;
                     };
