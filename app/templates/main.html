@@ -1,10 +1,18 @@
 <div id="carousel"></div>
 <div class="container content">
-    <ul class="row">
-        <li class="col-md-3 col-sm-6 col-xs-12" ng-repeat="product in products">
-            <a href="#/product/{{product.id}}">
-                <h3>{{product.name}}</h3>
-            </a>
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat-start="product in products">
+            <img src="http://placehold.it/500x300">
+            <h4>{{product.name}}</h4>
+            <p class="description">{{product.description}}</p>
+            <div class="additional-info">
+                <span class="price-label">{{product.price}}</span>
+                <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
+            </div>
+        </div>
+        <div ng-if="$index % 4 == 3"
+             class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
+        <div ng-if="$index % 4 == 1"
+             class="clearfix visible-sm-block" ng-repeat-end></div>
+    </div>
 </div>
