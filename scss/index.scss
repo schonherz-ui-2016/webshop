@@ -74,15 +74,6 @@ body {
     }
 }
 
-/*#product-order-form {
-    * {
-        margin: 10px;
-    }
-    #order-confirm {
-        font-size: 20px;
-    }
-}*/
-
 .formStyle {
     border: 1px solid lightgrey;
     border-radius: 5px;
@@ -105,6 +96,25 @@ body {
 }
 
 ng-view {
+    #sortBy {
+        font-size: 15px;
+        display: flex;
+        margin-top: 10px;
+        justify-content: flex-end;
+        .sortorder:after {
+            content: '\e253';
+        }
+        .sortorder.reverse:after {
+            content: '\e252';
+        }
+        span {
+            font-size: 12px;
+        }
+        > p {
+            margin: 5px 10px 5px 0;
+            font-weight: bold;
+        }
+    }
     .warn {
         color: red;
         margin: 10px 0 0;
