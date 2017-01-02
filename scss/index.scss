@@ -13,9 +13,26 @@ nav.navbar {
 }
 
 #carousel {
-    background: url("http://lorempixel.com/1200/400/sports/2/") center;
-    background-size: cover;
-    height: 400px;
+    
+    .carousel-inner {
+
+        .first-slide {
+            background: url("./img/Notebooks Creative Computer 4928x3264.jpg") center;
+            background-size: cover;
+            height: 400px;
+            width: 100%;
+        }
+
+        @media (max-width: 1080px) {
+            .first-slide {
+                background: url("./img/Notebooks Creative Computer-ID8977-640x424.jpg") center;
+                background-size: cover;
+                height: 400px;
+                width: 100%;
+            }
+
+        }
+    }
 }
 
 .content {
@@ -87,3 +104,5 @@ body {
         font-size: 20px;
     }
 }
+
+
