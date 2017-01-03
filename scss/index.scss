@@ -13,24 +13,36 @@ nav.navbar {
 }
 
 #carousel {
-    
+
     .carousel-inner {
 
-        .first-slide {
-            background: url("./img/Notebooks Creative Computer 4928x3264.jpg") center;
-            background-size: cover;
-            height: 400px;
-            width: 100%;
-        }
+        .item {
 
-        @media (max-width: 1080px) {
-            .first-slide {
-                background: url("./img/Notebooks Creative Computer-ID8977-640x424.jpg") center;
-                background-size: cover;
+            img {
                 height: 400px;
                 width: 100%;
             }
 
+            .first-slide {
+                background: url("./img/notebook-768x508.jpg") center;
+                background-size: cover;
+            }
+
+            @media (min-width: 768px) {
+                .first-slide {
+                    background: url("./img/notebook-1920x1272.jpg") center;
+                    background-size: cover;
+                }
+
+            }
+
+            @media (min-width: 1920px) {
+                .first-slide {
+                    background: url("./img/notebook-4928x3264.jpg") center;
+                    background-size: cover;
+                }
+
+            }
         }
     }
 }
