@@ -6,7 +6,7 @@
             $scope.login = function () {
                 loginService.login($scope.email, $scope.password)
                     .then(function () {
-                        $location.path("/authenticated");
+                        $location.path("/");
                     });
 
             }

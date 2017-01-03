@@ -5,15 +5,15 @@
 
     function LoginService(api, $window) {
 
-        var session = { authenticated: false };
+        var session = {authenticated: false};
 
         this.login = function (email, password) {
             return api.login(email, password)
                 .then(function (token) {
                     session.authenticated = true;
                     $window.localStorage.setItem('authenticated', true);
-            });
-        }
+                });
+        };
 
         this.getSession = function () {
             session.authenticated = $window.localStorage.getItem('authenticated');

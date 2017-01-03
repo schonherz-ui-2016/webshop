@@ -15,7 +15,7 @@
                     templateUrl: 'templates/loginPage.html',
                     controller: 'loginCtrl'
                 })
-                .when('/authenticated',{
+                .when('/authenticated', {
                     templateUrl: 'templates/loginPage.html',
                     controller: 'headerCtrl'
                 })
