@@ -30,10 +30,17 @@ nav.navbar {
 
             @media (min-width: 768px) {
                 .first-slide {
-                    background: url("./img/notebook-1920x1272.jpg") center;
+                    background: url("./img/notebook-1200x794.jpg") center;
                     background-size: cover;
                 }
 
+            }
+
+            @meadia (min-width: 1200px) {
+                .first-slide {
+                    background: url("./img/notebook-1920x1272.jpg") center;
+                    background-size: cover;
+                }
             }
 
             @media (min-width: 1920px) {
