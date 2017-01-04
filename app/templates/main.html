@@ -58,9 +58,10 @@
 
 <div class="container content" ng-show="showCategories">
     <div ng-repeat="category in categories | orderBy: propertyName:reverse">
-        <h2>{{category.name}}</h2>
+        <h2 ng-click="open = !open">{{open ? '&#x2212;' : '&#x2b;'}} {{category.name}}</h2>
         <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat-start="product in category.product">
+            <div class="col-md-3 col-sm-6 col-xs-12" ng-show="open"
+                 ng-repeat-start="product in category.product | orderBy: 'name'">
                 <img src="http://placehold.it/500x300">
                 <h4>{{product.name}}</h4>
                 <p class="description">{{product.description}}</p>
