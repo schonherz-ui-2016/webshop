@@ -11,7 +11,8 @@
             return api.login(email, password)
                 .then(function (token) {
                     session.authenticated = true;
-                    $window.localStorage.setItem('authenticated', true);
+                    /*$window.localStorage.setItem('authenticated', true);*/
+                    $window.localStorage.setItem('token', token);
                 });
         };
 
