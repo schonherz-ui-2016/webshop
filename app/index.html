@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="webshopModule">
 <head>
-    <meta charset="UTF-8">
     <title>Webshop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link href="css/index.css" rel="stylesheet"/>
 </head>
@@ -13,8 +14,8 @@
             <a class="navbar-brand" href="#/"><img src="css/img/logo.png" alt="Company Logo"></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/registration">Sign Up</a></li>
-            <li><a href="#/login">Log In</a></li>
+            <li><a href="#/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
         </ul>
     </div>
 </nav>
@@ -35,5 +36,6 @@
 <script src="src/loginController.js"></script>
 <script src="src/registrationController.js"></script>
 <script src="src/orderFormController.js"></script>
+<script src="src/registrationDirective.js"></script>
 </body>
 </html>
