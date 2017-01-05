@@ -52,6 +52,16 @@ body {
     }
 }
 
+.welcome-message {
+    float: right;
+    color: #777;
+    position: relative;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
 #product-order-form {
     * {
         margin: 10px;

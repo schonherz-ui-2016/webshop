@@ -15,8 +15,12 @@
                 });
         };
 
-        this.getSession = function () {
-            session.authenticated = $window.localStorage.getItem('authenticated');
+        this.getToken = function () {
+            if ($window.localStorage.getItem('token')) {
+                session.authenticated = true;
+            } else {
+                session.authenticated = false;
+            }
             return session;
         };
     }
