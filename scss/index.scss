@@ -15,8 +15,31 @@ nav.navbar {
 }
 
 .content {
-    ul {
-        list-style-type: none;
+    .row {
+
+        > div {
+            padding: 15px;
+
+            img {
+                width: 100%;
+            }
+
+            .additional-info {
+                float: right;
+                clear: both;
+
+                .btn {
+                    color: white;
+                    background-color: #002266;
+                }
+
+                .btn:hover {
+                    color: white;
+                    background-color: #001133;
+                }
+            }
+        }
+
     }
 }
 
@@ -70,4 +93,3 @@ body {
         font-size: 20px;
     }
 }
-
