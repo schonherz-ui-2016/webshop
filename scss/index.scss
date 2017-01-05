@@ -1,6 +1,10 @@
 nav {
     .navbar-brand {
-        padding: 5px 15px 15px 15px;
+        padding: 5px 15px;
+
+        img {
+            height: 40px;
+        }
     }
 }
 
@@ -9,9 +13,45 @@ nav.navbar {
 }
 
 #carousel {
-    background: url("http://lorempixel.com/1200/400/sports/2/") center;
-    background-size: cover;
-    height: 400px;
+
+    .carousel-inner {
+
+        .item {
+
+            img {
+                height: 400px;
+                width: 100%;
+            }
+
+            .first-slide {
+                background: url("./img/notebook-768x508.jpg") center;
+                background-size: cover;
+            }
+
+            @media (min-width: 768px) {
+                .first-slide {
+                    background: url("./img/notebook-1200x794.jpg") center;
+                    background-size: cover;
+                }
+
+            }
+
+            @media (min-width: 1200px) {
+                .first-slide {
+                    background: url("./img/notebook-1920x1272.jpg") center;
+                    background-size: cover;
+                }
+            }
+
+            @media (min-width: 1920px) {
+                .first-slide {
+                    background: url("./img/notebook-4928x3264.jpg") center;
+                    background-size: cover;
+                }
+
+            }
+        }
+    }
 }
 
 .content {
