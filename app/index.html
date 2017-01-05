@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="webshopModule">
 <head>
-    <meta charset="UTF-8">
     <title>Webshop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="css/index.css" rel="stylesheet"/>
@@ -11,11 +12,11 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img src="http://lorempixel.com/120/40/abstract/" alt="Project Logo"></a>
+            <a class="navbar-brand" href="#/"><img src="css/img/logo.png" alt="Company Logo"></a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/registration">Sign Up</a></li>
-            <li><a href="#/login">Log In</a></li>
+            <li><a href="#/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
         </ul>
     </div>
 </nav>
@@ -59,6 +60,7 @@
         </div>
     </div>
 </footer>
+<script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
 <script src="src/webshopModule.js"></script>
@@ -69,5 +71,6 @@
 <script src="src/loginController.js"></script>
 <script src="src/registrationController.js"></script>
 <script src="src/orderFormController.js"></script>
+<script src="src/registrationDirective.js"></script>
 </body>
 </html>
