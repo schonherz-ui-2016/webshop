@@ -1,14 +1,94 @@
-<form id="product-order-form" class="container">
-    <div>
-        <label for="country">Country</label>
-        <input id="country" class="form-control" placeholder="Country" required>
-        <label for="city">City</label>
-        <input id="city" class="form-control" placeholder="City" required>
-        <label for="zip">ZIP</label>
-        <input id="zip" class="form-control" placeholder="Postal code" required>
-        <label for="street">Adress</label>
-        <input id="street" class="form-control" placeholder="Street name, house number" required>
-        <button class="btn btn-default">Send order</button>
+<div class="modal fade" id="orderFeedback" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" ng-click="redirection()">&times;</button>
+                <h4 class="modal-title">Feedback</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-show="successfulOrder">Order was succesful.</p>
+                <p ng-show="unsuccessfulOrder">Order was not succesful.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="redirection()">Close
+                </button>
+            </div>
+        </div>
     </div>
-    <div id="order-confirm">You are about to order <a href="#/product/{{product.id}}">{{product.name}}</a> item</div>
-</form>
+</div>
+
+<div id="order" class="formStyle col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
+    <h1>Order</h1>
+    <form name="orderForm" ng-submit="order(newOrder, product.name)" id="product-order-form" novalidate>
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
+            <label for="country">Country:</label>
+            <input id="country" name="country" type="text" ng-model="newOrder.country" class="form-control"
+                   placeholder="Country" required>
+            <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="orderForm.country.$touched && orderForm.country.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="orderForm.$submitted || orderForm.country.$touched">
+                <p ng-show="orderForm.country.$error.required" class="warn">Tell us your country.</p>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': orderForm.city.$touched && orderForm.city.$valid, 'has-error': orderForm.city.$touched && orderForm.city.$invalid }">
+            <label for="city">City:</label>
+            <input id="city" name="city" type="text" ng-model="newOrder.city" class="form-control" placeholder="City"
+                   required>
+            <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="orderForm.city.$touched && orderForm.city.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="orderForm.$submitted || orderForm.city.$touched">
+                <p ng-show="orderForm.city.$error.required" class="warn">Tell us your city.</p>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': orderForm.zip.$touched && orderForm.zip.$valid, 'has-error': orderForm.zip.$touched && orderForm.zip.$invalid }">
+            <label for="zip">ZIP:</label>
+            <input id="zip" name="zip" type="text" ng-model="newOrder.zip" ng-pattern="/^\d+$/"
+                   class="form-control"
+                   placeholder="Postal code" required>
+            <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="orderForm.zip.$touched && orderForm.zip.$error.email || orderForm.zip.$touched && orderForm.zip.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="orderForm.$submitted || orderForm.zip.$touched">
+                <p ng-show="orderForm.zip.$error.required" class="warn">Tell us your ZIP code.</p>
+                <p ng-show="orderForm.zip.$invalid && !orderForm.zip.$error.required" class="warn">This is not a valid
+                    ZIP code.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback"
+             ng-class="{ 'has-success': orderForm.street.$touched && orderForm.street.$valid, 'has-error': orderForm.street.$touched && orderForm.street.$invalid }">
+            <label for="street">Adress:</label>
+            <input id="street" name="street" type="text" ng-model="newOrder.street" class="form-control"
+                   placeholder="Street name, house number" required>
+            <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
+                  class="glyphicon glyphicon-ok form-control-feedback"></span>
+            <span
+                ng-show="orderForm.street.$touched && orderForm.street.$error.required"
+                class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <div ng-show="orderForm.$submitted || orderForm.street.$touched">
+                <p ng-show="orderForm.street.$error.required" class="warn">Tell us your adress.</p>
+            </div>
+        </div>
+
+        <button id="orderButton" type="submit" ng-disabled="orderForm.$invalid" class="btn btn-primary"
+                data-target="#orderFeedback" data-toggle="{{modalVisible}}" ng-click="showModal()">Send order
+        </button>
+
+        <div id="order-confirm">You are about to order <a href="#/product/{{product.id}}">{{product.name}}</a> item.
+        </div>
+    </form>
+</div>
