@@ -3,7 +3,7 @@
         .module('webshopModule')
 
         .controller('headerCtrl', function ($scope, $rootScope, $http, api, loginService) {
-            $scope.session = loginService.getToken();
+            $scope.session = loginService.getSession();
         });
 
 })();
