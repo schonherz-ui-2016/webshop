@@ -10,6 +10,7 @@
                     $scope.products = result.data;
                 });
         }
+
         getProducts();
     }
 })();
