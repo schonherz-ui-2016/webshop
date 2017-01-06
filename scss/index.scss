@@ -281,6 +281,28 @@ body {
     }
 }
 
+
+#login {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    > h1 {
+        font-weight: bold;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+    > form {
+        display: flex;
+        flex-direction: column;
+        #loginButton {
+            margin-bottom: 15px;
+        }
+    }
+}
+
 ng-view {
     .warn {
         color: red;
