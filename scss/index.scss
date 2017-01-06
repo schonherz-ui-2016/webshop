@@ -108,32 +108,14 @@ body {
     }
 }
 
-.formStyle {
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding: 10px;
-    > h1 {
-        font-weight: bold;
-        margin: 0 0 20px;
-        text-align: center;
-    }
-    > form {
-        display: flex;
-        flex-direction: column;
-        > button {
-            margin-bottom: 15px;
-        }
-    }
-}
+.welcome-message {
+    float: right;
+    color: #777;
+    position: relative;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
-ng-view {
-    .warn {
-        color: red;
-        margin: 10px 0 0;
-    }
 }
 
 .footer-distributed {
@@ -268,6 +250,41 @@ ng-view {
 
     .footer-distributed .footer-center i {
         margin-left: 0;
+    }
+}
+
+#product-order-form {
+    * {
+        margin: 10px;
+
+        .formStyle {
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 10px;
+            > h1 {
+                font-weight: bold;
+                margin: 0 0 20px;
+                text-align: center;
+            }
+            > form {
+                display: flex;
+                flex-direction: column;
+                > button {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+    }
+}
+
+ng-view {
+    .warn {
+        color: red;
+        margin: 10px 0 0;
     }
 }
 
