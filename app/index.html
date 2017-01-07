@@ -20,9 +20,10 @@
         </div>
         <div class="collapse navbar-collapse in" ng-class="{'show-navbar': showNavbar}" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li><a ng-class="{'show-icons': showNavbar}" href="#/registration"><span
+                <li><a ng-click="showNavbar=!showNavbar" ng-class="{'show-icons': showNavbar}"
+                       href="#/registration"><span
                     class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a ng-class="{'show-icons': showNavbar}" href="#/login"><span
+                <li><a ng-click="showNavbar=!showNavbar" ng-class="{'show-icons': showNavbar}" href="#/login"><span
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
             </ul>
         </div>
