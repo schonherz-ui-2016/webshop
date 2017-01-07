@@ -141,3 +141,27 @@ ng-view {
         margin: 10px 0 0;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    #navbar {
+        height: 0;
+        transition: 0.5s;
+    }
+
+    #navbar.show-navbar {
+        height: 100px;
+    }
+
+    .navbar-nav > li > a {
+        right: -100%;
+        transition: 0.5s;
+    }
+
+    .navbar-nav > li:last-child > a {
+        transition-delay: 0.1s;
+    }
+
+    .navbar-nav > li .show-icons {
+        right: 0;
+    }
+}
