@@ -19,8 +19,17 @@
                 "email": email,
                 "password": password
             }).then(function (result) {
-                token = result.data.token;
+                return result.data.token;
             });
+        };
+
+
+        this.getUser = function (id) {
+            return $http.get(urlBase + '/user/' + id);
+        };
+
+        this.getUserId = function () {
+            return $http.get(urlBase + '/user/me');
         };
 
         this.order = function (order, item) {

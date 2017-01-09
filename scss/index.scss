@@ -1,5 +1,6 @@
 @import "feedback.scss";
 @import "form-style.scss";
+@import 'footer.scss';
 @import "navbar-animation";
 
 nav {
@@ -95,12 +96,6 @@ body {
     ng-view {
         flex: 1;
     }
-
-    footer {
-        background-color: #444444;
-        width: 100%;
-        height: 50px;
-    }
 }
 
 .product-details {
@@ -118,7 +113,57 @@ body {
     }
 }
 
+.welcome-message {
+    float: right;
+    color: #777;
+    position: relative;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+#login {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px;
+    > h1 {
+        font-weight: bold;
+        margin: 0 0 20px;
+        text-align: center;
+    }
+    > form {
+        display: flex;
+        flex-direction: column;
+        #loginButton {
+            margin-bottom: 15px;
+        }
+    }
+}
+
 ng-view {
+    #sortBy {
+        font-size: 15px;
+        display: flex;
+        margin-top: 10px;
+        justify-content: flex-end;
+        .sortorder:after {
+            content: '\e253';
+        }
+        .sortorder.reverse:after {
+            content: '\e252';
+        }
+        span {
+            font-size: 12px;
+        }
+        > p {
+            margin: 5px 10px 5px 0;
+            font-weight: bold;
+        }
+    }
     .warn {
         color: red;
         margin: 10px 0 0;
