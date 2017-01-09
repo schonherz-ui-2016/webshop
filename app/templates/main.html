@@ -10,7 +10,37 @@
 </div>
 <div class="container content">
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12" ng-repeat-start="product in products">
+        <div id="sortBy" class="col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 col-xs-12">
+            <p>Sort by:</p>
+
+            <div class="btn-group">
+                <button class="btn btn-default" ng-class="{'btn-primary': toggle1}"
+                        ng-click="sortBy('name'); showOnlyProducts('toggle1')">Name <span class="sortorder glyphicon"
+                                                                                          ng-show="propertyName === 'name'"
+                                                                                          ng-class="{reverse: reverse}"></span>
+                </button>
+
+                <button class="btn btn-default" ng-class="{'btn-primary': toggle2}"
+                        ng-click="sortBy('price'); showOnlyProducts('toggle2')">Price <span class="sortorder glyphicon"
+                                                                                            ng-show="propertyName === 'price'"
+                                                                                            ng-class="{reverse: reverse}"></span>
+                </button>
+
+                <button class="btn btn-default" ng-class="{'btn-primary': toggle3}"
+                        ng-click="sortBy('category.name'); showOnlyCategories()">Category <span
+                    class="sortorder glyphicon"
+                    ng-show="propertyName === 'category.name'"
+                    ng-class="{reverse: reverse}"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container content" ng-show="showProducts">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12"
+             ng-repeat-start="product in products | orderBy: propertyName : reverse">
             <img src="http://placehold.it/500x300">
             <h4>{{product.name}}</h4>
             <p class="description">{{product.description}}</p>
@@ -23,5 +53,27 @@
              class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
         <div ng-if="$index % 4 == 1"
              class="clearfix visible-sm-block" ng-repeat-end></div>
+    </div>
+</div>
+
+<div class="container content" ng-show="showCategories">
+    <div ng-repeat="category in categories | orderBy: propertyName:reverse">
+        <h2 ng-click="open = !open">{{open ? '&#x2212;' : '&#x2b;'}} {{category.name}}</h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12" ng-show="open"
+                 ng-repeat-start="product in category.product | orderBy: 'name'">
+                <img src="http://placehold.it/500x300">
+                <h4>{{product.name}}</h4>
+                <p class="description">{{product.description}}</p>
+                <div class="additional-info">
+                    <span class="price-label">{{product.price}}</span>
+                    <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
+                </div>
+            </div>
+            <div ng-if="$index % 4 == 3"
+                 class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
+            <div ng-if="$index % 4 == 1"
+                 class="clearfix visible-sm-block" ng-repeat-end></div>
+        </div>
     </div>
 </div>
