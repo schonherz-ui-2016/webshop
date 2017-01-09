@@ -92,10 +92,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
-    ng-view {
-        flex: 1;
-    }
 }
 
 .product-details {
@@ -145,6 +141,7 @@ body {
 }
 
 ng-view {
+    flex: 1;
     #sortBy {
         font-size: 15px;
         display: flex;
