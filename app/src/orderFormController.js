@@ -24,7 +24,7 @@
 
         $scope.showModal = function () {
             if ($scope.orderForm.$valid) {
-                $scope.modalVisible = "modal";
+                $scope.modalVisible = true;
             }
         };
 
@@ -45,7 +45,7 @@
                 }, 300);
             }
             else if ($scope.unsuccessfulOrder) {
-                $scope.modalVisible = "";
+                $scope.modalVisible = false;
             }
         };
     }
