@@ -1,4 +1,7 @@
+@import "feedback.scss";
+@import "form-style.scss";
 @import 'footer.scss';
+@import "navbar-animation";
 
 nav {
     .navbar-brand {
@@ -89,10 +92,6 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-
-    ng-view {
-        flex: 1;
-    }
 }
 
 .product-details {
@@ -120,34 +119,6 @@ body {
 
 }
 
-#product-order-form {
-    * {
-        margin: 10px;
-
-        .formStyle {
-            border: 1px solid lightgrey;
-            border-radius: 5px;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            padding: 10px;
-            > h1 {
-                font-weight: bold;
-                margin: 0 0 20px;
-                text-align: center;
-            }
-            > form {
-                display: flex;
-                flex-direction: column;
-                > button {
-                    margin-bottom: 15px;
-                }
-            }
-        }
-
-    }
-}
-
 #login {
     border: 1px solid lightgrey;
     border-radius: 5px;
@@ -170,6 +141,7 @@ body {
 }
 
 ng-view {
+    flex: 1;
     #sortBy {
         font-size: 15px;
         display: flex;
