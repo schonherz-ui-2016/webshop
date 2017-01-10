@@ -14,20 +14,20 @@
             <p>Sort by:</p>
 
             <div class="btn-group">
-                <button class="btn btn-default" ng-class="{'btn-primary': toggle1}"
-                        ng-click="sortBy('name'); showOnlyProducts('toggle1')">Name <span class="sortorder glyphicon"
-                                                                                          ng-show="propertyName === 'name'"
+                <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='name'}"
+                        ng-click="sortBy('name'); showOnlyProducts('name')">Name <span class="sortorder glyphicon"
+                                                                                       ng-show="propertyName === 'name'"
+                                                                                       ng-class="{reverse: reverse}"></span>
+                </button>
+
+                <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='price'}"
+                        ng-click="sortBy('price'); showOnlyProducts('price')">Price <span class="sortorder glyphicon"
+                                                                                          ng-show="propertyName === 'price'"
                                                                                           ng-class="{reverse: reverse}"></span>
                 </button>
 
-                <button class="btn btn-default" ng-class="{'btn-primary': toggle2}"
-                        ng-click="sortBy('price'); showOnlyProducts('toggle2')">Price <span class="sortorder glyphicon"
-                                                                                            ng-show="propertyName === 'price'"
-                                                                                            ng-class="{reverse: reverse}"></span>
-                </button>
-
-                <button class="btn btn-default" ng-class="{'btn-primary': toggle3}"
-                        ng-click="sortBy('category.name'); showOnlyCategories()">Category <span
+                <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='category'}"
+                        ng-click="sortBy('category.name'); showOnlyCategories('category')">Category <span
                     class="sortorder glyphicon"
                     ng-show="propertyName === 'category.name'"
                     ng-class="{reverse: reverse}"></span>
@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12"
              ng-repeat-start="product in products | orderBy: propertyName : reverse">
-            <img src="http://placehold.it/500x300">
+            <img src="../css/img/ledtv.jpg">
             <h4>{{product.name}}</h4>
             <p class="description">{{product.description}}</p>
             <div class="additional-info">
@@ -62,7 +62,7 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12" ng-show="open"
                  ng-repeat-start="product in category.product | orderBy: 'name'">
-                <img src="http://placehold.it/500x300">
+                <img src="../css/img/ledtv.jpg">
                 <h4>{{product.name}}</h4>
                 <p class="description">{{product.description}}</p>
                 <div class="additional-info">
