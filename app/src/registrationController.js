@@ -6,36 +6,36 @@
         $scope.register = function (customer) {
             api.registration(customer)
                 .then(function () {
-                    successfulFeedback();
+                    successfulReg();
                 }, function () {
-                    unsuccessfulFeedback();
+                    unsuccessfulReg();
                 });
         };
 
         $scope.showModal = function () {
             if ($scope.regForm.$valid) {
-                $scope.modalVisible = "modal";
+                $scope.modalVisible = true;
             }
         };
 
-        var successfulFeedback = function () {
-            $scope.successfulFeedback = true;
-            $scope.unsuccessfulFeedback = false;
+        var successfulReg = function () {
+            $scope.successfulReg = true;
+            $scope.unsuccessfulReg = false;
         };
 
-        var unsuccessfulFeedback = function () {
-            $scope.unsuccessfulFeedback = true;
-            $scope.successfulFeedback = false;
+        var unsuccessfulReg = function () {
+            $scope.unsuccessfulReg = true;
+            $scope.successfulReg = false;
         };
 
         $scope.redirection = function () {
-            if ($scope.successfulFeedback) {
+            if ($scope.successfulReg) {
                 $timeout(function () {
                     $location.path("/login")
                 }, 300);
             }
-            else if ($scope.unsuccessfulFeedback) {
-                $scope.modalVisible = "";
+            else if ($scope.unsuccessfulReg) {
+                $scope.modalVisible = false;
             }
         };
     }
