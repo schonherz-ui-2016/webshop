@@ -32,26 +32,14 @@
 
         $scope.showProducts = true;
 
-        $scope.showOnlyProducts = function (toggle) {
-            if (toggle == 'toggle1') {
-                $scope.toggle1 = true;
-                $scope.toggle2 = false;
-            }
+        $scope.showOnlyProducts = function (value) {
+            $scope.activeSort = value;
 
-            else if (toggle == 'toggle2') {
-                $scope.toggle1 = false;
-                $scope.toggle2 = true;
-            }
-
-            $scope.toggle3 = false;
             $scope.showProducts = true;
-            $scope.showCategories = false;
         };
 
-        $scope.showOnlyCategories = function () {
-            $scope.toggle1 = false;
-            $scope.toggle2 = false;
-            $scope.toggle3 = true;
+        $scope.showOnlyCategories = function (value) {
+            $scope.activeSort = value;
 
             $scope.showCategories = true;
             $scope.showProducts = false;
