@@ -3,6 +3,10 @@
 @import 'footer.scss';
 @import "navbar-animation";
 
+html {
+    height: 100%;
+}
+
 nav {
     .navbar-brand {
         padding: 5px 15px;
@@ -90,7 +94,7 @@ nav.navbar {
 
 body {
     display: flex;
-    min-height: 100vh;
+    min-height: 100%;
     flex-direction: column;
 }
 
