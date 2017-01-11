@@ -1,13 +1,33 @@
 <div class="container product-details">
-    <div class="col-md-4">
-        <img src="http://lorempixel.com/120/40/abstract/">
+    <div>
+        <div class="row">
+            <ul>
+                <li><a href="#/">Home</a></li>
+                <li><a>{{product.category.name}}</a></li>
+                <li><a href="#/product/{{product.id}}">{{product.name}}</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <img src="http://lorempixel.com/1280/1040/abstract/">
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <h2 class="name">{{product.name}}</h2>
+            <div>{{product.description}}</div>
+            <hr>
+        </div>
     </div>
-    <div class="col-md-8">
-        <ul>
-            <li>{{product.name}}</li>
-            <li>{{product.price}}</li>
-            <li>{{product.description}}</li>
-        </ul>
+    <div>
+        <div class="col-xs-4 col-sm-4 col-md-4">
+            <div class="order">
+                <a href="#/order/{{product.id}}">Order</a>
+            </div>
+        </div>
+        <div class="col-xs-8 col-sm-6 col-md-4">
+            <div class="price">{{product.price}}</div>
+            <div class="panel panel-success">
+                <div class="panel-heading"></div>
+                <div class="panel-body">Product is available at our warehouse</div>
+            </div>
+        </div>
     </div>
-    <a href="#/order/{{product.id}}">Order this item</a>
 </div>
