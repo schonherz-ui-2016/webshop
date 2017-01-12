@@ -8,11 +8,6 @@
                     .then(function () {
                         $location.path("/");
                     });
-
             };
-
-            /*$scope.logout=function logout() {
-                api.logout();
-            }*/
         })
 })();
