@@ -3,6 +3,10 @@
 @import 'footer.scss';
 @import "navbar";
 
+html {
+    height: 100%;
+}
+
 nav {
     .navbar-brand {
         padding: 5px 15px;
