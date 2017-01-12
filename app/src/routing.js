@@ -23,6 +23,9 @@
                     templateUrl: 'templates/registrationPage.html',
                     controller: 'registrationCtrl'
                 })
+                .when('/profile', {
+                    templateUrl: 'templates/userProfile.html'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
