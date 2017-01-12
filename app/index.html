@@ -28,9 +28,9 @@
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
             </ul>
         </div>
-        <ul>
-            <li ng-show="session.authenticated" class="welcome-message">Welcome <span
-                class="glyphicon glyphicon-user"></span></li>
+        <ul ng-show="session.authenticated">
+            <li class="welcome-message">Welcome <span class="glyphicon glyphicon-user"></span></li>
+            <li><a href="#/" ng-click="logout()"> Log Out</a></li>
         </ul>
     </div>
 </nav>

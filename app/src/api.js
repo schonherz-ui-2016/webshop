@@ -1,7 +1,7 @@
 (function () {
     var urlBase = 'http://localhost:1337';
 
-    function apiService($http) {
+    function apiService($http, $window) {
         this.getProducts = function () {
             return $http.get(urlBase + '/product');
         };
@@ -23,6 +23,8 @@
             });
         };
 
+        this.logout = function () {
+        };
 
         this.getUser = function (id) {
             return $http.get(urlBase + '/user/' + id);
