@@ -166,3 +166,18 @@ ng-view {
         margin: 10px 0 0;
     }
 }
+
+#user-profile {
+    textarea {
+        resize: none;
+    }
+
+}
+
+@media (max-width: 893px) {
+    #user-profile {
+        #order {
+            margin-top: 0;
+        }
+    }
+}
