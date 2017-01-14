@@ -1,7 +1,7 @@
-@import "feedback.scss";
-@import "form-style.scss";
+@import 'feedback.scss';
+@import 'form-style.scss';
 @import 'footer.scss';
-@import "navbar";
+@import 'navbar.scss';
 
 html {
     height: 100%;
@@ -112,7 +112,7 @@ body {
                 padding: 0;
                 display: inline;
 
-                a{
+                a {
                     padding: 0 5px;
                     text-decoration: none;
                 }
@@ -131,7 +131,7 @@ body {
         margin: 10px 0;
         padding: 15px 0;
 
-        a{
+        a {
             color: white;
             text-decoration: none;
             font-size: x-large;
