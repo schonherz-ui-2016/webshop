@@ -23,7 +23,6 @@
             });
         };
 
-
         this.getUser = function (id) {
             return $http.get(urlBase + '/user/' + id);
         };

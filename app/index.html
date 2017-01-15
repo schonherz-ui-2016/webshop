@@ -28,9 +28,9 @@
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
             </ul>
         </div>
-        <ul>
-            <li ng-show="session.authenticated" class="welcome-message">Welcome <span
-                class="glyphicon glyphicon-user"></span></li>
+        <ul ng-show="session.authenticated">
+            <li class="welcome-message">Welcome <span class="glyphicon glyphicon-user"></span></li>
+            <li><a href="#/" ng-click="logout()"> Log Out</a></li>
         </ul>
     </div>
 </nav>
@@ -39,11 +39,11 @@
     <div class="footer-left">
         <img src="footer-logo.png">
         <p class="footer-links">
-            <a href="#">Home</a> ·
-            <a href="#">Shipping</a> ·
-            <a href="#">About</a> ·
-            <a href="#">Contact</a> ·
-            <a href="#">Feedback</a>
+            <a href="#/">Home</a> ·
+            <a href="#/">Shipping</a> ·
+            <a href="#/">About</a> ·
+            <a href="#/">Contact</a> ·
+            <a href="#/">Feedback</a>
         </p>
         <p class="footer-project-name">IT Webshop © 2017</p>
     </div>

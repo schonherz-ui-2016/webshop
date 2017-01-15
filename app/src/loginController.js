@@ -8,7 +8,6 @@
                     .then(function () {
                         $location.path("/");
                     });
-
-            }
+            };
         })
 })();

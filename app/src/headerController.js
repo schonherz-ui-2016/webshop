@@ -2,8 +2,17 @@
     angular
         .module('webshopModule')
 
-        .controller('headerCtrl', function ($scope, $rootScope, $http, api, loginService) {
-            $scope.session = loginService.getSession();
+        .controller('headerCtrl', function ($scope, loginService) {
+            function fetchSession() {
+                $scope.session = loginService.getSession();
+            }
+
+            $scope.$on('loginStateChange', fetchSession);
+            fetchSession();
+
+            $scope.logout = function () {
+                loginService.logout();
+            };
         });
 
 })();
