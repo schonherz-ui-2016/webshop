@@ -23,12 +23,24 @@
             });
         };
 
-        this.getUser = function (id) {
-            return $http.get(urlBase + '/user/' + id);
+        this.getUser = function (token, id) {
+            return $http({
+                method: 'GET',
+                url: urlBase + '/user/' + id,
+                headers: {
+                    Authorization: 'JWT ' + token
+                }
+            })
         };
 
-        this.getUserId = function () {
-            return $http.get(urlBase + '/user/me');
+        this.getUserId = function (token) {
+            return $http({
+                method: 'GET',
+                url: urlBase + '/user/me',
+                headers: {
+                    Authorization: 'JWT ' + token
+                }
+            })
         };
 
         this.order = function (order, item) {
