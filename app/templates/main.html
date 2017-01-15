@@ -1,10 +1,24 @@
-<div id="carousel" class="carousel slide">
+<div id="carousel" class="carousel slide" ng-controller="carouselCtrl">
     <ol class="carousel-indicators">
-        <li class="active"></li>
+        <li ng-click="setActive('.first-pic')"></li>
+        <li ng-click="setActive('.second-pic')"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="item active">
-            <img class="first-slide">
+        <div class="first-pic item active">
+            <div class="carousel-caption">
+                <h3>Etiam convallis justo</h3>
+                <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
+                    eget gravida. Pellentesque eu sapien.</p>
+                <div class="btn-success">More</div>
+            </div>
+        </div>
+        <div class="second-pic item">
+            <div class="carousel-caption">
+                <h3>Etiam convallis justo</h3>
+                <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
+                    eget gravida. Pellentesque eu sapien.</p>
+                <div class="btn-success">More</div>
+            </div>
         </div>
     </div>
 </div>
