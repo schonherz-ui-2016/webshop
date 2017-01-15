@@ -27,11 +27,12 @@
                 <li><a ng-click="showNavbar=!showNavbar" ng-class="{'show-icons': showNavbar}" href="#/login"><span
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
             </ul>
+
+            <ul ng-show="session.authenticated" class="nav navbar-nav navbar-right">
+                <li><a href="#/"> Welcome {{user.name}} <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="#/" ng-click="logout()"> Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+            </ul>
         </div>
-        <ul ng-show="session.authenticated">
-            <li class="welcome-message">Welcome {{user.name}}<span class="glyphicon glyphicon-user"></span></li>
-            <li><a href="#/" ng-click="logout()"> Log Out</a></li>
-        </ul>
     </div>
 </nav>
 <ng-view></ng-view>
