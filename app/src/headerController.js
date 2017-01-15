@@ -17,13 +17,16 @@
             var session = loginService.getSession();
 
             function getUser() {
-                api.getUserId(session.token)
-                    .then(function (result) {
-                        api.getUser(session.token, result.data.id)
-                            .then(function (result) {
-                                $scope.user = result.data;
-                            })
-                    })
+                if (session.token) {
+                    api.getUserId(session.token)
+                        .then(function (result) {
+                            api.getUser(session.token, result.data.id)
+                                .then(function (result) {
+                                    $scope.user = result.data;
+                                })
+                        })
+                }
+
             }
 
             getUser();
