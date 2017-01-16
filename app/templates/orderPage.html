@@ -1,7 +1,7 @@
 <div class="feedback-background" ng-class="{'show-feedback-background': modalVisible}"></div>
 
 <div class="feedback-frame">
-    <div class="feedback" ng-class="{'show-feedback': modalVisible}">
+    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulOrder || unsuccessfulOrder)}">
         <div><span ng-show="successfulOrder">Congratulations!</span><span
             ng-show="unsuccessfulOrder">We are sorry!</span>
             <button class="btn btn-default" type="button" ng-click="redirection()">&times;</button>
@@ -16,11 +16,11 @@
 
 <div id="order" class="form-style col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Order</h1>
-    <form name="orderForm" ng-submit="order(newOrder, product.name)" id="product-order-form" novalidate>
+    <form name="orderForm" ng-submit="order(user.adress, product.name)" id="product-order-form" novalidate>
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
             <label for="country">Country:</label>
-            <input id="country" name="country" type="text" ng-model="newOrder.country" class="form-control"
+            <input id="country" name="country" type="text" ng-model="user.adress.country" class="form-control"
                    placeholder="Country" required>
             <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -35,7 +35,7 @@
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': orderForm.city.$touched && orderForm.city.$valid, 'has-error': orderForm.city.$touched && orderForm.city.$invalid }">
             <label for="city">City:</label>
-            <input id="city" name="city" type="text" ng-model="newOrder.city" class="form-control" placeholder="City"
+            <input id="city" name="city" type="text" ng-model="user.adress.city" class="form-control" placeholder="City"
                    required>
             <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -50,7 +50,7 @@
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': orderForm.zip.$touched && orderForm.zip.$valid, 'has-error': orderForm.zip.$touched && orderForm.zip.$invalid }">
             <label for="zip">ZIP:</label>
-            <input id="zip" name="zip" type="text" ng-model="newOrder.zip" ng-pattern="/^\d+$/"
+            <input id="zip" name="zip" type="text" ng-model="user.adress.zip" ng-pattern="/^\d+$/"
                    class="form-control"
                    placeholder="Postal code" required>
             <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
@@ -69,7 +69,7 @@
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': orderForm.street.$touched && orderForm.street.$valid, 'has-error': orderForm.street.$touched && orderForm.street.$invalid }">
             <label for="street">Adress:</label>
-            <input id="street" name="street" type="text" ng-model="newOrder.street" class="form-control"
+            <input id="street" name="street" type="text" ng-model="user.adress.street" class="form-control"
                    placeholder="Street name, house number" required>
             <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
                   class="glyphicon glyphicon-ok form-control-feedback"></span>

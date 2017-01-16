@@ -7,7 +7,21 @@
         .module('webshopModule')
         .controller('orderFormCtrl', orderFormController);
 
-    function orderFormController($scope, api, $routeParams, $location, $timeout) {
+    function orderFormController($scope, api, loginService, $routeParams, $location, $timeout) {
+        var session = loginService.getSession();
+
+        function getUser() {
+            api.getUserId(session.token)
+                .then(function (result) {
+                    api.getUser(session.token, result.data.id);
+                    return result;
+                })
+                .then(function (result) {
+                    $scope.user = result.data;
+                });
+        }
+
+        getUser();
 
         api.getProductDetails($routeParams.id)
             .then(function (result) {
@@ -15,7 +29,7 @@
             });
 
         $scope.order = function (order, item) {
-            api.order(order, item).then(function () {
+            api.order(order, item, session.token).then(function () {
                 successfulOrder();
             }, function () {
                 unsuccessfulOrder();

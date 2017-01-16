@@ -16,5 +16,8 @@
         > button {
             margin-bottom: 15px;
         }
+        > div:last-child {
+            margin-bottom: 0;
+        }
     }
 }

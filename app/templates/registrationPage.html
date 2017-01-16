@@ -1,7 +1,7 @@
 <div class="feedback-background" ng-class="{'show-feedback-background': modalVisible}"></div>
 
 <div class="feedback-frame">
-    <div class="feedback" ng-class="{'show-feedback': modalVisible}">
+    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulReg || unsuccessfulReg)}">
         <div><span ng-show="successfulReg">Congratulations!</span><span ng-show="unsuccessfulReg">We are sorry!</span>
             <button class="btn btn-default" type="button" ng-click="redirection()">&times;</button>
         </div>
@@ -18,7 +18,6 @@
 <div id="registration" class="form-style col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Registration</h1>
     <form name="regForm" ng-submit="register(newCustomer)" novalidate>
-
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': regForm.name.$touched && regForm.name.$valid, 'has-error': regForm.name.$touched && regForm.name.$invalid }">
             <label>Name:</label>

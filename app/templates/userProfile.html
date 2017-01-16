@@ -1,25 +1,44 @@
+<div class="feedback-background"
+     ng-class="{'show-feedback-background': modalVisible && (successfulEdit || unsuccessfulEdit)}"></div>
+
+<div class="feedback-frame">
+    <div class="feedback" ng-class="{'show-feedback': modalVisible}">
+        <div><span ng-show="successfulEdit">Congratulations!</span><span ng-show="unsuccessfulEdit">We are sorry!</span>
+            <button class="btn btn-default" type="button" ng-click="closeModal()">&times;</button>
+        </div>
+        <div><p ng-show="successfulEdit">Saved changes.</p>
+            <p ng-show="unsuccessfulEdit">Something went wrong.</p></div>
+        <div>
+            <button class="btn btn-default" type="button" ng-click="closeModal()">Close</button>
+        </div>
+    </div>
+</div>
+
 <div id="user-profile">
     <div class="container">
         <div class="row">
-            <div class="form-style col-md-4 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-12">
+            <div id="user" class="form-style col-md-5 col-md-offset-1 col-sm-8 col-sm-offset-2 col-xs-12">
                 <h1>User information</h1>
                 <form name="userProfile" novalidate>
                     <div class="form-group has-feedback"
-                         ng-class="{ 'has-success': userProfile.name.$dirty && userProfile.name.$valid, 'has-error': userProfile.name.$error.required }">
+                         ng-class="{ 'has-success': userProfile.name.$dirty && userProfile.name.$valid, 'has-error': userProfile.name.$dirty && userProfile.name.$error.required }">
                         <label>Name:</label>
-                        <input class="form-control" type="text" name="name" placeholder="Enter your name" required>
+                        <input class="form-control" type="text" ng-model="user.name" name="name"
+                               placeholder="Enter your name" required>
                         <span ng-show="userProfile.name.$dirty && userProfile.name.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
                         <span
                             ng-show="userProfile.name.$dirty && userProfile.name.$error.required"
                             class="glyphicon glyphicon-remove form-control-feedback"></span>
-                        <p class="warn" ng-show="userProfile.name.$error.required">This field is required.</p>
+                        <p class="warn" ng-show="userProfile.name.$dirty && userProfile.name.$error.required">This field
+                            is required.</p>
                     </div>
 
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': userProfile.email.$dirty && userProfile.email.$valid, 'has-error': userProfile.email.$dirty && userProfile.email.$invalid }">
                         <label>Email:</label>
-                        <input class="form-control" type="email" name="email" placeholder="Enter your email" required>
+                        <input class="form-control" type="email" ng-model="user.email" name="email"
+                               placeholder="Enter your email" required>
                         <span ng-show="userProfile.email.$dirty && userProfile.email.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
                         <span
@@ -34,30 +53,31 @@
                     <div class="form-group">
                         <label>Gender:</label><br>
                         <label class="radio-inline">
-                            <input type="radio" name="male" value="male">Male
+                            <input type="radio" name="male" value="male" ng-model="user.gender">Male
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="male" value="female">Female
+                            <input type="radio" name="male" value="female" ng-model="user.gender">Female
                         </label>
                     </div>
 
                     <div class="form-group has-feedback"
-                         ng-class="{ 'has-success': userProfile.tel.$dirty && userProfile.tel.$valid, 'has-error': userProfile.tel.$dirty && userProfile.tel.$invalid }">
+                         ng-class="{ 'has-success': userProfile.phone.$dirty && userProfile.phone.$valid, 'has-error': userProfile.phone.$dirty && userProfile.phone.$invalid }">
                         <label>Telephone:</label>
-                        <input class="form-control" type="tel" name="tel" placeholder="Enter your phone number">
-                        <span ng-show="userProfile.tel.$dirty && userProfile.tel.$valid"
+                        <input class="form-control" type="text" ng-model="user.phone" name="phone"
+                               placeholder="Enter your phone number" ng-pattern="/^\+?\d+(-\d+)*$/">
+                        <span ng-show="userProfile.phone.$dirty && userProfile.phone.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
                         <span
-                            ng-show="userProfile.tel.$dirty && userProfile.tel.$invalid"
+                            ng-show="userProfile.phone.$dirty && userProfile.phone.$invalid"
                             class="glyphicon glyphicon-remove form-control-feedback"></span>
-                        <p class="warn" ng-show="userProfile.tel.$error.tel">This is not a valid phone number.</p>
+                        <p class="warn" ng-show="userProfile.phone.$invalid">This is not a valid phone number.</p>
                     </div>
 
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': userProfile.bankAccount.$dirty && userProfile.bankAccount.$valid, 'has-error': userProfile.bankAccount.$dirty && userProfile.bankAccount.$invalid }">
                         <label>Bank account number:</label>
-                        <input class="form-control" type="text" name="bankAccount"
-                               placeholder="Enter your bank account number">
+                        <input class="form-control" type="text" ng-model="user.bankAccount" name="bankAccount"
+                               placeholder="Enter your bank account number" ng-pattern="/^\w{1,17}$/">
                         <span ng-show="userProfile.bankAccount.$dirty && userProfile.bankAccount.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
                         <span
@@ -68,25 +88,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Date of birth</label>
-                        <input class="form-control" type="date" name="birth">
-                    </div>
-
-                    <div class="form-group">
                         <label>Bio:</label>
-                        <textarea class="form-control" rows="6" name="bio"
+                        <textarea class="form-control" rows="6" name="bio" ng-model="user.bio"
                                   placeholder="Tell a little about yourself"></textarea>
                     </div>
                 </form>
             </div>
 
-            <div id="order" class="form-style col-md-4 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+            <div id="order" class="form-style col-md-5 col-md-offset-0 col-sm-offset-2 col-sm-8 col-xs-12">
                 <h1>Order information</h1>
-                <form name="orderForm" ng-submit="order(newOrder, product.name)" id="product-order-form" novalidate>
+                <form name="orderForm" id="product-order-form" novalidate>
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': orderForm.country.$dirty && orderForm.country.$valid, 'has-error': orderForm.country.$dirty && orderForm.country.$invalid }">
                         <label for="country">Country:</label>
-                        <input id="country" name="country" type="text" ng-model="newOrder.country" class="form-control"
+                        <input id="country" name="country" type="text" ng-model="user.adress.country"
+                               class="form-control"
                                placeholder="Country" required>
                         <span ng-show="orderForm.country.$touched && orderForm.country.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -95,7 +111,7 @@
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': orderForm.city.$dirty && orderForm.city.$valid, 'has-error': orderForm.city.$dirty && orderForm.city.$invalid }">
                         <label for="city">City:</label>
-                        <input id="city" name="city" type="text" ng-model="newOrder.city" class="form-control"
+                        <input id="city" name="city" type="text" ng-model="user.adress.city" class="form-control"
                                placeholder="City"
                                required>
                         <span ng-show="orderForm.city.$touched && orderForm.city.$valid"
@@ -105,8 +121,8 @@
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': orderForm.zip.$dirty && orderForm.zip.$valid, 'has-error': orderForm.zip.$dirty && orderForm.zip.$invalid }">
                         <label for="zip">ZIP:</label>
-                        <input id="zip" name="zip" type="text" ng-model="newOrder.zip" class="form-control"
-                               placeholder="Postal code" required>
+                        <input id="zip" name="zip" type="text" ng-model="user.adress.zip" class="form-control"
+                               placeholder="Postal code" ng-pattern="/^\d+$/" required>
                         <span ng-show="orderForm.zip.$touched && orderForm.zip.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
                         <span
@@ -122,7 +138,7 @@
                     <div class="form-group has-feedback"
                          ng-class="{ 'has-success': orderForm.street.$dirty && orderForm.street.$valid, 'has-error': orderForm.street.$dirty && orderForm.street.$invalid }">
                         <label for="street">Adress:</label>
-                        <input id="street" name="street" type="text" ng-model="newOrder.street" class="form-control"
+                        <input id="street" name="street" type="text" ng-model="user.adress.street" class="form-control"
                                placeholder="Street name, house number" required>
                         <span ng-show="orderForm.street.$touched && orderForm.street.$valid"
                               class="glyphicon glyphicon-ok form-control-feedback"></span>
@@ -130,7 +146,8 @@
                 </form>
             </div>
 
-            <button class="btn btn-primary col-md-4 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">Save changes
+            <button type="submit" class="btn btn-primary col-md-5 col-md-offset-0 col-sm-8 col-sm-offset-2 col-xs-12"
+                    ng-click="showModal()">Save changes
             </button>
         </div>
     </div>
