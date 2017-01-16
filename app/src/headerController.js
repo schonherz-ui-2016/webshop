@@ -20,10 +20,10 @@
                 if (session.token) {
                     api.getUserId(session.token)
                         .then(function (result) {
-                            api.getUser(session.token, result.data.id)
-                                .then(function (result) {
-                                    $scope.user = result.data;
-                                })
+                            return api.getUser(session.token, result.data.id);
+                        })
+                        .then(function (result) {
+                            $scope.user = result.data;
                         })
                 }
 
