@@ -31,11 +31,12 @@
                 <li><a ng-show="session.authenticated" ng-click="showNavbar=!showNavbar"
                        ng-class="{'show-icons': showNavbar}" href="#/profile">Profile</a></li>
             </ul>
+
+            <ul ng-show="session.authenticated" class="nav navbar-nav navbar-right">
+                <li><a href="#/"> Welcome {{user.name}} <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a href="#/" ng-click="logout()"> Log Out <span class="glyphicon glyphicon-log-out"></span></a></li>
+            </ul>
         </div>
-        <ul>
-            <li ng-show="session.authenticated" class="welcome-message">Welcome <span
-                class="glyphicon glyphicon-user"></span></li>
-        </ul>
     </div>
 </nav>
 <ng-view></ng-view>
@@ -43,11 +44,11 @@
     <div class="footer-left">
         <img src="footer-logo.png">
         <p class="footer-links">
-            <a href="#">Home</a> ·
-            <a href="#">Shipping</a> ·
-            <a href="#">About</a> ·
-            <a href="#">Contact</a> ·
-            <a href="#">Feedback</a>
+            <a href="#/">Home</a> ·
+            <a href="#/">Shipping</a> ·
+            <a href="#/">About</a> ·
+            <a href="#/">Contact</a> ·
+            <a href="#/">Feedback</a>
         </p>
         <p class="footer-project-name">IT Webshop © 2017</p>
     </div>
