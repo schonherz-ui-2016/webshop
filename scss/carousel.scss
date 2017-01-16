@@ -5,9 +5,12 @@
         .item {
             height: 400px;
             width: 100%;
-            animation: fade 1.5s;
+            animation: fade 1s;
 
             @keyframes fade {
+                0% {
+                    opacity: 0
+                }
                 10% {
                     opacity: 0.1
                 }
