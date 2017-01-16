@@ -43,7 +43,7 @@
             })
         };
 
-        this.order = function (order, item) {
+        this.order = function (order, item, token) {
             return $http({
                 method: 'POST',
                 url: urlBase + '/order',
@@ -59,6 +59,17 @@
                 }
             })
         };
+
+        this.editProfile = function (user, token) {
+            return $http({
+                method: 'PUT',
+                url: urlBase + '/user/' + user.id,
+                data: user,
+                headers: {
+                    Authorization: 'JWT ' + token
+                }
+            })
+        }
     }
 
     angular.module('webshopModule').service('api', apiService);

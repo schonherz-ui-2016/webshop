@@ -20,12 +20,16 @@
             </button>
         </div>
         <div class="collapse navbar-collapse in" ng-class="{'show-navbar': showNavbar}" id="navbar">
-            <ul ng-hide="session.authenticated" class="nav navbar-nav navbar-right">
-                <li><a ng-click="showNavbar=!showNavbar" ng-class="{'show-icons': showNavbar}"
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-hide="session.authenticated" ng-click="showNavbar=!showNavbar"
+                       ng-class="{'show-icons': showNavbar}"
                        href="#/registration"><span
                     class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a ng-click="showNavbar=!showNavbar" ng-class="{'show-icons': showNavbar}" href="#/login"><span
+                <li><a ng-hide="session.authenticated" ng-click="showNavbar=!showNavbar"
+                       ng-class="{'show-icons': showNavbar}" href="#/login"><span
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+                <li><a ng-show="session.authenticated" ng-click="showNavbar=!showNavbar"
+                       ng-class="{'show-icons': showNavbar}" href="#/profile">Profile</a></li>
             </ul>
 
             <ul ng-show="session.authenticated" class="nav navbar-nav navbar-right">
@@ -87,5 +91,6 @@
 <script src="src/headerController.js"></script>
 <script src="src/loginService.js"></script>
 <script src="src/registrationDirective.js"></script>
+<script src="src/userProfileController.js"></script>
 </body>
 </html>
