@@ -24,7 +24,7 @@
                     $location.path("/login")
                 }, 300);
             }
-            else if ($scope.successfulReg = false) {
+            else {
                 $scope.modalVisible = false;
             }
         };
