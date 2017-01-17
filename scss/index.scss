@@ -1,6 +1,8 @@
 @import 'feedback.scss';
 @import 'form-style.scss';
 @import 'footer.scss';
+@import "carousel.scss";
+@import "navbar.scss";
 @import 'navbar.scss';
 
 html {
@@ -19,48 +21,6 @@ nav {
 
 nav.navbar {
     margin: 0;
-}
-
-#carousel {
-
-    .carousel-inner {
-
-        .item {
-
-            img {
-                height: 400px;
-                width: 100%;
-            }
-
-            .first-slide {
-                background: url("./img/notebook-768x508.jpg") center;
-                background-size: cover;
-            }
-
-            @media (min-width: 768px) {
-                .first-slide {
-                    background: url("./img/notebook-1200x794.jpg") center;
-                    background-size: cover;
-                }
-
-            }
-
-            @media (min-width: 1200px) {
-                .first-slide {
-                    background: url("./img/notebook-1920x1272.jpg") center;
-                    background-size: cover;
-                }
-            }
-
-            @media (min-width: 1920px) {
-                .first-slide {
-                    background: url("./img/notebook-4928x3264.jpg") center;
-                    background-size: cover;
-                }
-
-            }
-        }
-    }
 }
 
 .content {
