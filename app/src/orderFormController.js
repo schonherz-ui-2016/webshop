@@ -48,7 +48,7 @@
                     $location.path("/");
                 }, 300);
             }
-            else if ($scope.successfulOrder = false) {
+            else {
                 $scope.modalVisible = false;
             }
         };
