@@ -1,13 +1,13 @@
 <div class="feedback-background"
-     ng-class="{'show-feedback-background': modalVisible && (successfulEdit || unsuccessfulEdit)}"></div>
+     ng-class="{'show-feedback-background': modalVisible && (successfulEdit || !successfulEdit) }"></div>
 
 <div class="feedback-frame">
     <div class="feedback" ng-class="{'show-feedback': modalVisible}">
-        <div><span ng-show="successfulEdit">Congratulations!</span><span ng-show="unsuccessfulEdit">We are sorry!</span>
+        <div><span ng-show="successfulEdit">Congratulations!</span><span ng-show="!successfulEdit">We are sorry!</span>
             <button class="btn btn-default" type="button" ng-click="closeModal()">&times;</button>
         </div>
         <div><p ng-show="successfulEdit">Saved changes.</p>
-            <p ng-show="unsuccessfulEdit">Something went wrong.</p></div>
+            <p ng-show="!successfulEdit">Something went wrong.</p></div>
         <div>
             <button class="btn btn-default" type="button" ng-click="closeModal()">Close</button>
         </div>
