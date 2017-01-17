@@ -2,13 +2,19 @@
 
     angular
         .module('webshopModule')
-        .controller('carouselCtrl', function ($scope) {
-            $scope.setActive = function (element) {
-                var thisElem = angular.element(element);
-                if (!thisElem.hasClass('active')) {
-                    thisElem.addClass('active');
-                    thisElem.siblings().removeClass('active');
+        .controller('carouselController',
+            function ($scope, $interval) {
+                $scope.active = 0;
+
+                var unsubscribe = $interval(nextSlide, 15000);
+
+                $scope.$on('$destroy', function () {
+                    unsubscribe()
+                });
+
+                function nextSlide() {
+                    $scope.active = ($scope.active + 1) % 3;
                 }
-            }
-        });
+            })
+
 })();

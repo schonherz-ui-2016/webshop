@@ -1,27 +1,37 @@
-<div id="carousel" class="carousel slide" ng-controller="carouselCtrl">
-    <ol class="carousel-indicators">
-        <li ng-click="setActive('.first-pic')"></li>
-        <li ng-click="setActive('.second-pic')"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="first-pic item active">
-            <div class="carousel-caption">
-                <h3>Etiam convallis justo</h3>
-                <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
-                    eget gravida. Pellentesque eu sapien.</p>
-                <div class="btn-success">More</div>
-            </div>
-        </div>
-        <div class="second-pic item">
-            <div class="carousel-caption">
-                <h3>Etiam convallis justo</h3>
-                <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
-                    eget gravida. Pellentesque eu sapien.</p>
-                <div class="btn-success">More</div>
-            </div>
+<div class="carousel" ng-controller="carouselController">
+    <div class="slide" ng-class="{'active': active == 0}">
+        <div class="carousel-caption">
+            <h3>Etiam convallis justo</h3>
+            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
+                eget gravida. Pellentesque eu sapien.</p>
+            <div class="btn-success">More</div>
         </div>
     </div>
+    <div class="slide" ng-class="{'active': active == 1}">
+        <div class="carousel-caption">
+            <h3>Etiam convallis justo</h3>
+            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
+                eget gravida. Pellentesque eu sapien.</p>
+            <div class="btn-success">More</div>
+        </div>
+    </div>
+    <div class="slide" ng-class="{'active': active == 2}">
+        <div class="carousel-caption">
+            <h3>Etiam convallis justo</h3>
+            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
+                eget gravida. Pellentesque eu sapien.</p>
+            <div class="btn-success">More</div>
+        </div>
+    </div>
+    <div class="carousel-indicators">
+        <ul>
+            <li ng-click="{'active': active = 0}"></li>
+            <li ng-click="{'active': active = 1}"></li>
+            <li ng-click="{'active': active = 2}"></li>
+        </ul>
+    </div>
 </div>
+
 <div class="container content">
     <div class="row">
         <div id="sortBy" class="col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 col-xs-12">

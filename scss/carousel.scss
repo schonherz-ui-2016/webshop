@@ -1,138 +1,126 @@
-#carousel {
+.carousel {
+    position: relative;
+    height: 400px;
+}
 
-    .carousel-inner {
+.slide {
+    position: absolute;
+    top: 0;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(0, 0.5, 0, 0.5);
+}
 
-        .item {
-            height: 400px;
-            width: 100%;
-            animation: fade 1s;
+.slide.active {
+    opacity: 1;
+}
 
-            @keyframes fade {
-                0% {
-                    opacity: 0
-                }
-                10% {
-                    opacity: 0.1
-                }
-                20% {
-                    opacity: 0.2
-                }
-                30% {
-                    opacity: 0.3
-                }
-                40% {
-                    opacity: 0.4
-                }
-                50% {
-                    opacity: 0.5
-                }
-                60% {
-                    opacity: 0.6
-                }
-                70% {
-                    opacity: 0.7
-                }
-                80% {
-                    opacity: 0.8
-                }
-                90% {
-                    opacity: 0.9
-                }
-                100% {
-                    opacity: 1
-                }
-            }
+.carousel-caption:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: background-color 1s linear;
+}
 
-            .carousel-caption:hover {
-                background-color: rgba(0, 0, 0, 0.8);
-                transition: background-color 1s linear;
-            }
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    width: 60%;
+    height: 150px;
+    left: 20%;
+    bottom: 50px;
+    padding: 10px;
+    border-radius: 4px;
+    overflow: auto;
+    transition: background-color 1s linear;
 
-            .carousel-caption {
-                background-color: rgba(0, 0, 0, 0.1);
-                position: absolute;
-                width: 60%;
-                height: 150px;
-                left: 20%;
-                bottom: 50px;
-                padding: 10px;
-                border-radius: 4px;
-                overflow: auto;
-                transition: background-color 1s linear;
-
-                .btn-success {
-                    position: absolute;
-                    width: 20%;
-                    height: 30px;
-                    padding: 5px;
-                    border-radius: 4px;
-                    left: 40%;
-                }
-            }
-        }
-
-        .first-pic {
-            background: url("./img/notebook-768x508.jpg") center;
-            background-size: cover;
-            transition: opacity 1s linear;
-        }
-
-        @media (min-width: 768px) {
-            .first-pic {
-                background: url("./img/notebook-1200x794.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-
-        }
-
-        @media (min-width: 1200px) {
-            .first-pic {
-                background: url("./img/notebook-1920x1272.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .first-pic {
-                background: url("./img/notebook-4928x3264.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-        }
-
-        .second-pic {
-            background: url("./img/harddisk-768x511.jpg") center;
-            background-size: cover;
-            transition: opacity 1s linear;
-        }
-
-        @media (min-width: 768px) {
-            .second-pic {
-                background: url("./img/harddisk-1200x799.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-
-        }
-
-        @media (min-width: 1200px) {
-            .second-pic {
-                background: url("./img/harddisk-1920x1280.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-        }
-
-        @media (min-width: 1920px) {
-            .second-pic {
-                background: url("./img/harddisk-4751x3167.jpg") center;
-                background-size: cover;
-                transition: opacity 1s linear;
-            }
-        }
-
+    .btn-success {
+        position: absolute;
+        width: 20%;
+        height: 30px;
+        padding: 5px;
+        border-radius: 4px;
+        left: 40%;
     }
 }
 
+.slide:nth-child(1) {
+    background: url("./img/notebook-768x508.jpg") center;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .slide:nth-child(1) {
+        background: url("./img/notebook-1200x794.jpg") center;
+        background-size: cover;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .slide:nth-child(1) {
+        background: url("./img/notebook-1920x1272.jpg") center;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide:nth-child(1) {
+        background: url("./img/notebook-4928x3264.jpg") center;
+        background-size: cover;
+    }
+}
+
+.slide:nth-child(2) {
+    background: url("./img/harddisk-768x511.jpg") center;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .slide:nth-child(2) {
+        background: url("./img/harddisk-1200x799.jpg") center;
+        background-size: cover;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .slide:nth-child(2) {
+        background: url("./img/harddisk-1920x1280.jpg") center;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide:nth-child(2) {
+        background: url("./img/harddisk-4751x3167.jpg") center;
+        background-size: cover;
+    }
+}
+
+.slide:nth-child(3) {
+    background: url("./img/keyboard-768x484.jpg") center;
+    background-size: cover;
+}
+
+@media (min-width: 768px) {
+    .slide:nth-child(3) {
+        background: url("./img/keyboard-1200x757.jpg") center;
+        background-size: cover;
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .slide:nth-child(3) {
+        background: url("./img/keyboard-1920x1211.jpg") center;
+        background-size: cover;
+    }
+}
+
+@media (min-width: 1920px) {
+    .slide:nth-child(3) {
+        background: url("./img/keyboard-6000x3786.jpg") center;
+        background-size: cover;
+    }
+}
