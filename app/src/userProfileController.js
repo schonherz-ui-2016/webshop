@@ -26,13 +26,15 @@
             api.editProfile(user, session.token)
                 .then(function () {
                     $scope.successfulEdit = true;
+                    $scope.userProfile.$setPristine();
+                    $scope.orderForm.$setPristine();
                 }, function () {
                     $scope.successfulEdit = false;
                 })
         };
 
         $scope.showModal = function () {
-            if ($scope.userProfile.$valid && $scope.orderForm.$valid) {
+            if ($scope.userProfile.$valid && $scope.orderForm.$valid && ($scope.userProfile.$dirty || $scope.orderForm.$dirty)) {
                 editProfile($scope.user);
                 $scope.modalVisible = true;
             }
