@@ -1,7 +1,15 @@
 .carousel {
     position: relative;
     height: 400px;
+
+    .carousel-indicators {
+        ul, ol {
+            margin: 0;
+            padding: 0;
+        }
+    }
 }
+
 
 .slide {
     position: absolute;
