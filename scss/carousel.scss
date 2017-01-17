@@ -48,10 +48,26 @@
     background: url("./img/notebook-768x508.jpg") center;
     background-size: cover;
 }
+.slide:nth-child(2) {
+    background: url("./img/harddisk-768x511.jpg") center;
+    background-size: cover;
+}
+.slide:nth-child(3) {
+    background: url("./img/keyboard-768x484.jpg") center;
+    background-size: cover;
+}
 
 @media (min-width: 768px) {
     .slide:nth-child(1) {
         background: url("./img/notebook-1200x794.jpg") center;
+        background-size: cover;
+    }
+    .slide:nth-child(2) {
+        background: url("./img/harddisk-1200x799.jpg") center;
+        background-size: cover;
+    }
+    .slide:nth-child(3) {
+        background: url("./img/keyboard-1200x757.jpg") center;
         background-size: cover;
     }
 
@@ -62,56 +78,10 @@
         background: url("./img/notebook-1920x1272.jpg") center;
         background-size: cover;
     }
-}
-
-@media (min-width: 1920px) {
-    .slide:nth-child(1) {
-        background: url("./img/notebook-4928x3264.jpg") center;
-        background-size: cover;
-    }
-}
-
-.slide:nth-child(2) {
-    background: url("./img/harddisk-768x511.jpg") center;
-    background-size: cover;
-}
-
-@media (min-width: 768px) {
-    .slide:nth-child(2) {
-        background: url("./img/harddisk-1200x799.jpg") center;
-        background-size: cover;
-    }
-
-}
-
-@media (min-width: 1200px) {
     .slide:nth-child(2) {
         background: url("./img/harddisk-1920x1280.jpg") center;
         background-size: cover;
     }
-}
-
-@media (min-width: 1920px) {
-    .slide:nth-child(2) {
-        background: url("./img/harddisk-4751x3167.jpg") center;
-        background-size: cover;
-    }
-}
-
-.slide:nth-child(3) {
-    background: url("./img/keyboard-768x484.jpg") center;
-    background-size: cover;
-}
-
-@media (min-width: 768px) {
-    .slide:nth-child(3) {
-        background: url("./img/keyboard-1200x757.jpg") center;
-        background-size: cover;
-    }
-
-}
-
-@media (min-width: 1200px) {
     .slide:nth-child(3) {
         background: url("./img/keyboard-1920x1211.jpg") center;
         background-size: cover;
@@ -119,6 +89,14 @@
 }
 
 @media (min-width: 1920px) {
+    .slide:nth-child(1) {
+        background: url("./img/notebook-4928x3264.jpg") center;
+        background-size: cover;
+    }
+    .slide:nth-child(2) {
+        background: url("./img/harddisk-4751x3167.jpg") center;
+        background-size: cover;
+    }
     .slide:nth-child(3) {
         background: url("./img/keyboard-6000x3786.jpg") center;
         background-size: cover;
