@@ -1,13 +1,13 @@
 <div class="feedback-background" ng-class="{'show-feedback-background': modalVisible}"></div>
 
 <div class="feedback-frame">
-    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulOrder || unsuccessfulOrder)}">
+    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulOrder || !successfulOrder)}">
         <div><span ng-show="successfulOrder">Congratulations!</span><span
-            ng-show="unsuccessfulOrder">We are sorry!</span>
+            ng-show="!successfulOrder">We are sorry!</span>
             <button class="btn btn-default" type="button" ng-click="redirection()">&times;</button>
         </div>
         <div><p ng-show="successfulOrder">Order was succesful.</p>
-            <p ng-show="unsuccessfulOrder">Order was not succesful.</p></div>
+            <p ng-show="!successfulOrder">Order was not succesful.</p></div>
         <div>
             <button class="btn btn-default" type="button" ng-click="redirection()">Close</button>
         </div>

@@ -18,16 +18,6 @@
 
         getUser();
 
-        var successfulEdit = function () {
-            $scope.successfulEdit = true;
-            $scope.unsuccessfulEdit = false;
-        };
-
-        var unsuccessfulEdit = function () {
-            $scope.unsuccessfulEdit = true;
-            $scope.successfulEdit = false;
-        };
-
         $scope.closeModal = function () {
             $scope.modalVisible = false;
         };
@@ -35,9 +25,9 @@
         var editProfile = function (user) {
             api.editProfile(user, session.token)
                 .then(function () {
-                    successfulEdit();
+                    $scope.successfulEdit = true;
                 }, function () {
-                    unsuccessfulEdit();
+                    $scope.successfulEdit = false;
                 })
         };
 

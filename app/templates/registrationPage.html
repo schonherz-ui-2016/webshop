@@ -1,12 +1,12 @@
 <div class="feedback-background" ng-class="{'show-feedback-background': modalVisible}"></div>
 
 <div class="feedback-frame">
-    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulReg || unsuccessfulReg)}">
-        <div><span ng-show="successfulReg">Congratulations!</span><span ng-show="unsuccessfulReg">We are sorry!</span>
+    <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulReg || !successfulReg)}">
+        <div><span ng-show="successfulReg">Congratulations!</span><span ng-show="!successfulReg">We are sorry!</span>
             <button class="btn btn-default" type="button" ng-click="redirection()">&times;</button>
         </div>
         <div><p ng-show="successfulReg">Registration was succesful.</p>
-            <p ng-show="unsuccessfulReg">The email address you specified is already in use. (Do you already
+            <p ng-show="!successfulReg">The email address you specified is already in use. (Do you already
                 have an
                 account?)</p></div>
         <div>

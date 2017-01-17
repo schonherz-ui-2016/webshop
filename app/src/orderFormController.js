@@ -30,9 +30,9 @@
 
         $scope.order = function (order, item) {
             api.order(order, item, session.token).then(function () {
-                successfulOrder();
+                $scope.successfulOrder = true;
             }, function () {
-                unsuccessfulOrder();
+                $scope.successfulOrder = false;
             });
         };
 
@@ -42,23 +42,13 @@
             }
         };
 
-        var successfulOrder = function () {
-            $scope.successfulOrder = true;
-            $scope.unsuccessfulOrder = false;
-        };
-
-        var unsuccessfulOrder = function () {
-            $scope.unsuccessfulOrder = true;
-            $scope.successfulOrder = false;
-        };
-
         $scope.redirection = function () {
             if ($scope.successfulOrder) {
                 $timeout(function () {
                     $location.path("/");
                 }, 300);
             }
-            else if ($scope.unsuccessfulOrder) {
+            else if ($scope.successfulOrder = false) {
                 $scope.modalVisible = false;
             }
         };

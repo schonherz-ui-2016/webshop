@@ -204,17 +204,13 @@ ng-view {
     }
 }
 
+#user {
+    margin-bottom: 0;
+}
+
 #user-profile {
     textarea {
         resize: none;
     }
 
-}
-
-@media (max-width: 893px) {
-    #user-profile {
-        #order {
-            margin-top: 0;
-        }
-    }
 }
