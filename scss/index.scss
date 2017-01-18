@@ -138,11 +138,14 @@ body {
 }
 
 ng-view {
+
     flex: 1;
+
     #sortBy {
         font-size: 15px;
         display: flex;
-        margin-top: 10px;
+        padding: 0;
+        margin: 2px 0;
         justify-content: flex-end;
         .sortorder:after {
             content: '\e253';
@@ -158,6 +161,14 @@ ng-view {
             font-weight: bold;
         }
     }
+
+    #searchInput {
+        border: 1px solid #2e6da4;
+        border-radius: 2px;
+        padding: 8px;
+        margin: 2px 0;
+    }
+
     .warn {
         color: red;
         margin: 10px 0 0;
