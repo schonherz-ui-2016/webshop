@@ -5,6 +5,7 @@
         .controller('headerCtrl', function ($scope, loginService, api) {
             function fetchSession() {
                 $scope.session = loginService.getSession();
+                getUser();
             }
 
             $scope.$on('loginStateChange', fetchSession);
@@ -14,13 +15,11 @@
                 loginService.logout();
             };
 
-            var session = loginService.getSession();
-
             function getUser() {
-                if (session.token) {
-                    api.getUserId(session.token)
+                if ($scope.session.token) {
+                    api.getUserId($scope.session.token)
                         .then(function (result) {
-                            return api.getUser(session.token, result.data.id);
+                            return api.getUser($scope.session.token, result.data.id);
                         })
                         .then(function (result) {
                             $scope.user = result.data;
@@ -28,8 +27,6 @@
                 }
 
             }
-
-            getUser();
 
         });
 

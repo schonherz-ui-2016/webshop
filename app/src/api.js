@@ -20,10 +20,11 @@
             return $http.post(urlBase + '/user/register', customer);
         };
 
-        this.login = function (email, password) {
+        this.login = function (email, password, rememberMe) {
             return $http.post(urlBase + '/user/login', {
                 "email": email,
-                "password": password
+                "password": password,
+                "rememberMe": rememberMe
             }).then(function (result) {
                 return result.data.token;
             });
