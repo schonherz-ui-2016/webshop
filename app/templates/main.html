@@ -2,7 +2,7 @@
     <div class="slide" ng-class="{'active': active == 0}">
         <div class="carousel-caption">
             <h3>{{products[0].name}}</h3>
-            <p>{{products[0].description | limitTo: 200}}</p>
+            <p>{{products[0].description | limitTo: 40}}</p>
             <a href="#/product/{{products[0].id}}">
                 <div class="btn-success">Details</div>
             </a>
@@ -11,7 +11,7 @@
     <div class="slide" ng-class="{'active': active == 1}">
         <div class="carousel-caption">
             <h3>{{products[1].name}}</h3>
-            <p>{{products[1].description | limitTo: 200}}</p>
+            <p>{{products[1].description | limitTo: 40}}</p>
             <a href="#/product/{{products[1].id}}">
                 <div class="btn-success">Details</div>
             </a>
@@ -20,7 +20,7 @@
     <div class="slide" ng-class="{'active': active == 2}">
         <div class="carousel-caption">
             <h3>{{products[2].name}}</h3>
-            <p>{{products[2].description | limitTo: 200}}</p>
+            <p>{{products[2].description | limitTo: 40}}</p>
             <a href="#/product/{{products[2].id}}">
                 <div class="btn-success">Details</div>
             </a>
