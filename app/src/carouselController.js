@@ -3,7 +3,13 @@
     angular
         .module('webshopModule')
         .controller('carouselController',
-            function ($scope, $interval) {
+            function ($scope, $interval, api) {
+
+                api.getProducts()
+                    .then(function (result) {
+                        $scope.products = result.data;
+                    });
+
                 $scope.active = 0;
 
                 var unsubscribe = $interval(nextSlide, 15000);
