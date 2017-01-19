@@ -3,13 +3,12 @@
     height: 400px;
 
     .carousel-indicators {
-        ul, ol {
+        ul {
             margin: 0;
             padding: 0;
         }
     }
 }
-
 
 .slide {
     position: absolute;
@@ -42,6 +41,10 @@
     overflow: auto;
     transition: background-color 1s linear;
 
+    p:after {
+        content: '...';
+    }
+
     .btn-success {
         position: absolute;
         width: 20%;
@@ -56,10 +59,12 @@
     background: url("./img/notebook-768x508.jpg") center;
     background-size: cover;
 }
+
 .slide:nth-child(2) {
     background: url("./img/harddisk-768x511.jpg") center;
     background-size: cover;
 }
+
 .slide:nth-child(3) {
     background: url("./img/keyboard-768x484.jpg") center;
     background-size: cover;

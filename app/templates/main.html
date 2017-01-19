@@ -1,33 +1,36 @@
 <div class="carousel" ng-controller="carouselController">
     <div class="slide" ng-class="{'active': active == 0}">
         <div class="carousel-caption">
-            <h3>Etiam convallis justo</h3>
-            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
-                eget gravida. Pellentesque eu sapien.</p>
-            <div class="btn-success">More</div>
+            <h3>{{products[0].name}}</h3>
+            <p>{{products[0].description | limitTo: 200}}</p>
+            <a href="#/product/{{products[0].id}}">
+                <div class="btn-success">Details</div>
+            </a>
         </div>
     </div>
     <div class="slide" ng-class="{'active': active == 1}">
         <div class="carousel-caption">
-            <h3>Etiam convallis justo</h3>
-            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
-                eget gravida. Pellentesque eu sapien.</p>
-            <div class="btn-success">More</div>
+            <h3>{{products[1].name}}</h3>
+            <p>{{products[1].description | limitTo: 200}}</p>
+            <a href="#/product/{{products[1].id}}">
+                <div class="btn-success">Details</div>
+            </a>
         </div>
     </div>
     <div class="slide" ng-class="{'active': active == 2}">
         <div class="carousel-caption">
-            <h3>Etiam convallis justo</h3>
-            <p>Cras a orci erat. Praesent nec ante nec velit semper ultrices. Suspendisse faucibus commodo tortor
-                eget gravida. Pellentesque eu sapien.</p>
-            <div class="btn-success">More</div>
+            <h3>{{products[2].name}}</h3>
+            <p>{{products[2].description | limitTo: 200}}</p>
+            <a href="#/product/{{products[2].id}}">
+                <div class="btn-success">Details</div>
+            </a>
         </div>
     </div>
     <div class="carousel-indicators">
         <ul>
-            <li ng-click="active = 0"></li>
-            <li ng-click="active = 1"></li>
-            <li ng-click="active = 2"></li>
+            <li ng-class="{'active': active == 0}" ng-click="active = 0"></li>
+            <li ng-class="{'active': active == 1}" ng-click="active = 1"></li>
+            <li ng-class="{'active': active == 2}" ng-click="active = 2"></li>
         </ul>
     </div>
 </div>
