@@ -45,9 +45,9 @@
 
                 <div class="btn-group">
                     <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='name'}"
-                            ng-click="sortBy('name'); showOnlyProducts('name')">Name <span class="sortorder glyphicon"
-                                                                                           ng-show="propertyName === 'name'"
-                                                                                           ng-class="{reverse: reverse}"></span>
+                            ng-click="sortBy('name')">Name <span class="sortorder glyphicon"
+                                                                 ng-show="propertyName === 'name'"
+                                                                 ng-class="{reverse: reverse}"></span>
                     </button>
 
                     <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='price'}"
@@ -56,23 +56,20 @@
                         ng-show="propertyName === 'price'"
                         ng-class="{reverse: reverse}"></span>
                     </button>
-
-                    <button class="btn btn-default" ng-class="{'btn-primary': activeSort=='category'}"
-                            ng-click="sortBy('category.name'); showOnlyCategories('category')">Category <span
-                        class="sortorder glyphicon"
-                        ng-show="propertyName === 'category.name'"
-                        ng-class="{reverse: reverse}"></span>
-                    </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container content" ng-show="showProducts">
+<div class="container content">
+    <div id="category-tree" class="row">
+        <div>Categories</div>
+        <tree class="col-xs-6" node="categories" selected="selected"></tree>
+    </div>
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12"
-             ng-repeat-start="product in products | orderBy: propertyName : reverse | filter: searchText:name">
+             ng-repeat-start="product in selected.products || products | orderBy: propertyName : reverse | filter: searchText:name">
             <img src="http://lorempixel.com/500/300/technics/">
             <h4>{{product.name}}</h4>
             <p class="description">{{product.description}}</p>
@@ -85,27 +82,5 @@
              class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
         <div ng-if="$index % 4 == 1"
              class="clearfix visible-sm-block" ng-repeat-end></div>
-    </div>
-</div>
-
-<div class="container content" ng-show="showCategories">
-    <div ng-repeat="category in categories | orderBy: propertyName:reverse | filter: searchText:name">
-        <h2 ng-click="open = !open">{{open ? '&#x2212;' : '&#x2b;'}} {{category.name}}</h2>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12" ng-show="open"
-                 ng-repeat-start="product in category.product | orderBy: 'name'">
-                <img src="http://lorempixel.com/500/300/technics/">
-                <h4>{{product.name}}</h4>
-                <p class="description">{{product.description}}</p>
-                <div class="additional-info">
-                    <span class="price-label">{{product.price}}</span>
-                    <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
-                </div>
-            </div>
-            <div ng-if="$index % 4 == 3"
-                 class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
-            <div ng-if="$index % 4 == 1"
-                 class="clearfix visible-sm-block" ng-repeat-end></div>
-        </div>
     </div>
 </div>
