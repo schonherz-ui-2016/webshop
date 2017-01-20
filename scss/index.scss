@@ -187,8 +187,13 @@ ng-view {
 }
 
 #category-tree {
+    font-size: 23px;
+    white-space: nowrap;
+    text-shadow: 0 1px .5px #555;
     > div {
+        color: #ff751a;
         font-size: 32px;
+        padding-bottom: 0;
     }
     tree {
         div {
@@ -198,13 +203,23 @@ ng-view {
     ul {
         margin: 0;
     }
-    font-size: 23px;
-    white-space: nowrap;
-    text-shadow: 0 1px .5px #555;
+    .hvr-skew-forward {
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        transition-duration: 0.3s;
+        transition-property: transform;
+        transform-origin: 0 100%;
+    }
+    .hvr-skew-forward:hover, .hvr-skew-forward:focus, .hvr-skew-forward:active {
+        transform: skew(-10deg);
+        opacity: .7;
+    }
     .node {
         cursor: pointer;
     }
     .node.active {
+        color: #1a75ff;
         font-weight: bold;
+        transform: skew(-10deg);
     }
 }

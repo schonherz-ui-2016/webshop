@@ -7,7 +7,7 @@
         return {
             template: `
       <div>
-        <div ng-click="node.open = !node.open; $emit('nodeSelected', node)" class="node" ng-class="{active: selected == node}">
+        <div ng-click="node.open = !node.open; $emit('nodeSelected', node)" class="node hvr-skew-forward" ng-class="{active: selected == node}">
           <span ng-if="node.categories.length">
             <span ng-if="!node.open">+</span>
             <span ng-if="node.open">-</span>

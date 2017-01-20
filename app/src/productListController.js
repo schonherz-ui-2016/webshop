@@ -23,24 +23,20 @@
 
                     $scope.categories = buildTree(data[2]);
 
+                    console.log(result.data);
+
                     console.log($scope.categories);
 
                     function buildTree(node) {
-                        if (node.categories) node.categories = node.categories.map(function (category) {
+                        if (node.categories && node.categories.length) node.categories = node.categories.map(function (category) {
                             var mappedCategory = data.find(function (iterator) {
                                 return iterator.id == category.id;
                             });
-                            if (node.categories.length) return buildTree(mappedCategory);
-                            return mappedCategory;
+                            var builtTree = buildTree(mappedCategory);
+                            if (mappedCategory.products) node.products = (node.products || []).concat(mappedCategory.products);
+                            return builtTree;
                         });
                         return node;
-                    }
-
-                    function fillProductList(node) {
-                        if (!node.products) node.products = node.categories.map(function (category) {
-                            if (category.products) node.products.concat(category.products);
-                            return fillProductList(category);
-                        });
                     }
                 })
         }
