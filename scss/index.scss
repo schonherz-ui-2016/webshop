@@ -188,8 +188,10 @@ ng-view {
 
 #category-tree {
     font-size: 23px;
-    white-space: nowrap;
+    margin: 5px;
+    padding: 15px;
     text-shadow: 0 1px .5px #555;
+    white-space: nowrap;
     > div {
         color: #ff751a;
         font-size: 32px;
@@ -204,15 +206,15 @@ ng-view {
         margin: 0;
     }
     .hvr-skew-forward {
-        transform: perspective(1px) translateZ(0);
         box-shadow: 0 0 1px transparent;
+        transform: perspective(1px) translateZ(0);
         transition-duration: 0.3s;
         transition-property: transform;
         transform-origin: 0 100%;
     }
     .hvr-skew-forward:hover, .hvr-skew-forward:focus, .hvr-skew-forward:active {
-        transform: skew(-10deg);
         opacity: .7;
+        transform: skew(-10deg);
     }
     .node {
         cursor: pointer;
@@ -222,4 +224,20 @@ ng-view {
         font-weight: bold;
         transform: skew(-10deg);
     }
+}
+
+@media (min-width: 768px) {
+    #product-list {
+        display: flex;
+        justify-content: space-between;
+
+    }
+    #category-tree {
+        position: relative;
+    }
+
+}
+
+.container:before {
+    content: none;
 }
