@@ -8,11 +8,11 @@
             margin-left: -16px;
             overflow: hidden;
             position: absolute;
-            transition: .5s;
+            transition: .7s;
             width: 100%;
             z-index: 100;
             &.show-navbar {
-                height: 100px;
+                height: 85px;
             }
         }
         ul {
@@ -22,11 +22,11 @@
 
     .navbar-nav > li > a {
         right: -100%;
-        transition: .5s;
+        transition: .7s;
 
     }
 
-    .navbar-nav > li:last-child > a {
+    .navbar-nav > li:nth-child(even) > a {
         transition-delay: .1s;
     }
 
