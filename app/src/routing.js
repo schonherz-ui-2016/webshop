@@ -27,6 +27,14 @@
                     templateUrl: 'templates/userProfile.html',
                     controller: 'userProfileCtrl'
                 })
+                .when('/cart', {
+                    templateUrl: 'templates/cartPage.html',
+                    controller: 'cartCtrl'
+                })
+                .when('/order', {
+                    templateUrl: 'templates/cartOrderPage.html',
+                    controller: 'cartOrderCtrl'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

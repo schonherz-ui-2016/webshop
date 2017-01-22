@@ -1,0 +1,33 @@
+<div id="cart" class="container content">
+    <h2>This is your cart</h2>
+    <p ng-show="products.length">You are about to order the following items.</p>
+
+    <table id="cart-table" ng-show="products.length" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Product name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in products">
+            <td>{{product.name}}</td>
+            <td><input class="form-control" type="number" min="1" max="100" ng-model="product.quantity"></td>
+            <td>{{product.price * product.quantity | currency}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="removeItem($index)">X</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p ng-hide="products.length">Your shopping cart is empty.</p>
+
+    <div class="col-md-3 col-md-offset-9">
+        <p ng-show="products.length">Total: {{total() | currency}}</p>
+        <a href="#/" class="btn btn-info">Continue shopping</a>
+        <a href="#/order" ng-show="products.length" class="btn btn-primary">Pay</a>
+    </div>
+</div>

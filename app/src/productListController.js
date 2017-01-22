@@ -3,7 +3,7 @@
         .module('webshopModule')
         .controller('productListCtrl', ProductListController);
 
-    function ProductListController($scope, api) {
+    function ProductListController($scope, api, productService) {
         function getProducts() {
             api.getProducts()
                 .then(function (result) {
@@ -63,6 +63,10 @@
             }
 
             return false;
+        };
+
+        $scope.callToAddToProductList = function (product) {
+            productService.addProduct(product);
         };
     }
 })();
