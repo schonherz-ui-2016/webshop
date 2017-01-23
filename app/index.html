@@ -30,7 +30,7 @@
                     class="glyphicon glyphicon-log-in"></span> Log In</a></li>
                 <li><a ng-show="session.authenticated" ng-click="showNavbar=!showNavbar"
                        ng-class="{'show-icons': showNavbar}"
-                       href="#/profile">Profile</a></li>
+                       href="#/profile"><span class="glyphicon glyphicon-cog"></span> Profile</a></li>
                 <li><a ng-show="session.authenticated" href="#/" ng-click="showNavbar=!showNavbar; logout();"
                        ng-class="{'show-icons': showNavbar}"> Log Out <span class="glyphicon glyphicon-log-out"></span></a>
                 </li>
