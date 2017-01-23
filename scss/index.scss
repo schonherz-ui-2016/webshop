@@ -116,27 +116,6 @@ body {
     }
 }
 
-#login {
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding: 10px;
-    > h1 {
-        font-weight: bold;
-        margin: 0 0 20px;
-        text-align: center;
-    }
-    > form {
-        display: flex;
-        flex-direction: column;
-        #loginButton {
-            margin-bottom: 15px;
-        }
-    }
-}
-
 ng-view {
 
     flex: 1;
@@ -175,15 +154,32 @@ ng-view {
     }
 }
 
-#user {
-    margin-bottom: 0;
-}
-
 #user-profile {
     textarea {
         resize: none;
     }
+}
 
+#order {
+    margin-top: 0;
+}
+
+#profile-save-button {
+    margin-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+    #user {
+
+        margin-right: 10px;
+    }
+    #order {
+        margin-left: 10px;
+        margin-top: 20px;
+    }
+    #profile-save-button {
+        margin-left: 10px;
+    }
 }
 
 #category-tree {
