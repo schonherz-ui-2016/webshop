@@ -204,6 +204,9 @@ ng-view {
     }
     ul {
         margin: 0;
+        li {
+            list-style-type: none;
+        }
     }
     .hvr-skew-forward {
         box-shadow: 0 0 1px transparent;

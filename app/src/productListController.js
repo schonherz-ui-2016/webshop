@@ -23,10 +23,6 @@
 
                     $scope.categories = buildTree(data[2]);
 
-                    console.log(result.data);
-
-                    console.log($scope.categories);
-
                     function buildTree(node) {
                         if (node.categories && node.categories.length) node.categories = node.categories.map(function (category) {
                             var mappedCategory = data.find(function (iterator) {
