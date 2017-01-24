@@ -8,47 +8,44 @@
             api.getProducts()
                 .then(function (result) {
                     $scope.products = result.data;
-
-                    $scope.sortedProducts = {};
-                    $scope.products.forEach(function (product) {
-                        if (!$scope.sortedProducts[product.category.name]) {
-                            $scope.sortedProducts[product.category.name] = [];
-                        }
-
-                        $scope.sortedProducts[product.category.name].push(product);
-                    });
-
-                    $scope.categories = [];
-                    angular.forEach($scope.sortedProducts, function (value, key) {
-                        $scope.categories.push({
-                            name: key,
-                            product: value
-                        });
-                    });
                 });
         }
 
+        $scope.$on('nodeSelected', function ($event, selection) {
+            $scope.selected = selection;
+        });
+        $scope.selected = null;
+
+        function getCategories() {
+            api.getCategories()
+                .then(function (result) {
+                    var data = result.data;
+
+                    $scope.categories = buildTree(data[2]);
+
+                    function buildTree(node) {
+                        if (node.categories && node.categories.length) node.categories = node.categories.map(function (category) {
+                            var mappedCategory = data.find(function (iterator) {
+                                return iterator.id == category.id;
+                            });
+                            var builtTree = buildTree(mappedCategory);
+                            if (mappedCategory.products) node.products = (node.products || []).concat(mappedCategory.products);
+                            return builtTree;
+                        });
+                        return node;
+                    }
+                })
+        }
+
+        getCategories();
+
         getProducts();
-
-        $scope.showProducts = true;
-
-        $scope.showOnlyProducts = function (value) {
-            $scope.activeSort = value;
-
-            $scope.showProducts = true;
-        };
-
-        $scope.showOnlyCategories = function (value) {
-            $scope.activeSort = value;
-
-            $scope.showCategories = true;
-            $scope.showProducts = false;
-        };
 
         $scope.propertyName = null;
         $scope.reverse = false;
 
         $scope.sortBy = function (propertyName) {
+            $scope.activeSort = propertyName;
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
             $scope.showCategories = false;
