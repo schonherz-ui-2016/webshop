@@ -1,18 +1,35 @@
+<div class="feedback-background" ng-class="{'show-feedback-background': modalVisible}"></div>
+
+<div class="feedback-frame">
+    <div class="feedback" ng-class="{'show-feedback': modalVisible}">
+        <div><span>Warning!</span>
+            <button class="btn btn-default" type="button" ng-click="modalVisible=!modalVisible">&times;</button>
+        </div>
+        <div><p>Bad username or password. Please try again.</p></div>
+        <div>
+            <button class="btn btn-default" type="button" ng-click="modalVisible=!modalVisible">Close</button>
+        </div>
+    </div>
+</div>
+
 <div id="login" class="form-style col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Log In</h1>
-    <form ng-submit="login(email, password, rememberMe)">
+    <form name="loginForm" ng-submit="login(email, password, rememberMe)" novalidate>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="text" class="form-control" id="email" placeholder="Enter email" ng-model="email" required>
+            <label>Email:</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email" ng-model="email" required>
+            <p class="warn" ng-show="loginForm.$submitted && loginForm.email.$error.email">This is not a valid
+                email.</p>
         </div>
         <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password" ng-model="password"
+            <label>Password:</label>
+            <input type="password" class="form-control" name="pwd" placeholder="Enter password" ng-model="password"
                    required>
+            <p class="warn" ng-show="loginForm.$submitted && loginForm.$error.required">All the fields are required.</p>
         </div>
         <div class="checkbox">
             <label><input type="checkbox" ng-model="rememberMe"> Remember me </label>
         </div>
-        <button type="submit" class="btn btn-default" id="loginButton">Submit</button>
+        <button type="submit" class="btn btn-default" id="loginButton" ng-click="showModal()">Submit</button>
     </form>
 </div>
