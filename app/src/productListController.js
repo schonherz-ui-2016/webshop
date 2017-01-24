@@ -68,5 +68,11 @@
         $scope.callToAddToProductList = function (product) {
             productService.addProduct(product);
         };
+
+        $scope.counter = productService.counter();
+
+        $scope.updateCounter = function () {
+            $scope.counter = productService.counter();
+        }
     }
 })();

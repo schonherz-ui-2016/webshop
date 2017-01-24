@@ -14,9 +14,11 @@
     </div>
 </div>
 
-<div id="order" class="form-style col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
+<div class="form-style col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 col-xs-12">
     <h1>Order</h1>
-    <form name="orderForm" ng-submit="order(user.adress, products)" id="product-order-form" novalidate>
+    <form name="orderForm"
+          ng-submit="order(user.adress, {id: product.id, name: product.name, price: product.price, quantity: 1})"
+          id="product-order-form" novalidate>
         <div class="form-group has-feedback"
              ng-class="{ 'has-success': orderForm.country.$touched && orderForm.country.$valid, 'has-error': orderForm.country.$touched && orderForm.country.$invalid }">
             <label for="country">Country:</label>

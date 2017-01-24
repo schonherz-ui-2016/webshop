@@ -4,6 +4,10 @@
         .service('productService', function () {
             var productList = [];
 
+            var counter = function () {
+                if (productList.length) return productList.length;
+            };
+
             var addProduct = function (product) {
                 var matchProduct = productList.find(function (item) {
                     return item.name == product.name
@@ -24,10 +28,16 @@
                 productList.splice(index, 1);
             };
 
+            var emptyArray = function () {
+                productList = []
+            };
+
             return {
                 addProduct: addProduct,
                 getProducts: getProducts,
-                removeItem: removeItem
+                removeItem: removeItem,
+                emptyArray: emptyArray,
+                counter: counter
             }
         });
 })();

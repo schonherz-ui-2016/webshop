@@ -29,9 +29,14 @@
             });
         };
 
+        $scope.emptyArray = function () {
+            productService.emptyArray();
+        };
+
         $scope.showModal = function () {
             if ($scope.orderForm.$valid) {
                 $scope.modalVisible = true;
+                productService.emptyArray();
             }
         };
 
