@@ -4,12 +4,16 @@
     function apiService($http, $window) {
         var urlBase = 'http://localhost:1337';
 
-        if ($window.urlBase){
-           urlBase = $window.urlBase;
-        };
+        if ($window.urlBase) {
+            urlBase = $window.urlBase;
+        }
 
         this.getProducts = function () {
             return $http.get(urlBase + '/product');
+        };
+
+        this.getCategories = function () {
+            return $http.get(urlBase + '/category');
         };
 
         this.getProductDetails = function (id) {
