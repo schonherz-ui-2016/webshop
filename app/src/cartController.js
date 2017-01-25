@@ -13,10 +13,14 @@
         $scope.total = function () {
             var sum = 0;
 
-            angular.forEach($scope.products, function (item) {
-                sum += item.price * item.quantity;
+            var valid = true;
 
+            angular.forEach($scope.products, function (item) {
+                if (item.price * item.quantity == 0) valid = false;
+                sum += item.price * item.quantity;
             });
+
+            if (valid == false) return false;
 
             return sum;
         };
