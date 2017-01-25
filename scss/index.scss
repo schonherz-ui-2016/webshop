@@ -169,8 +169,8 @@ ng-view {
 
 #cart {
     table {
-        th {
-            width: 20px;
+        .form-control {
+            width: 85px;
         }
     }
     > div {

@@ -48,7 +48,6 @@
             $scope.activeSort = propertyName;
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
-            $scope.showCategories = false;
         };
 
         $scope.lastCategory = null;
