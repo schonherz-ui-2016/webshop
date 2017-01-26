@@ -1,9 +1,9 @@
-@import 'feedback.scss';
-@import 'form-style.scss';
-@import 'footer.scss';
 @import "carousel.scss";
+@import "category-tree.scss";
+@import 'feedback.scss';
+@import 'footer.scss';
+@import 'form-style.scss';
 @import "navbar.scss";
-@import 'navbar.scss';
 
 html {
     height: 100%;
@@ -160,6 +160,30 @@ ng-view {
     }
 }
 
+@media (max-width: 768px) {
+    #cartButton {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+}
+
+#cart {
+    table {
+        .form-control {
+            width: 85px;
+        }
+    }
+    > div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        text-align: end;
+        > p {
+            font-weight: bold;
+        }
+    }
+}
+
 #order {
     margin-top: 0;
 }
@@ -182,49 +206,6 @@ ng-view {
     }
 }
 
-#category-tree {
-    font-size: 23px;
-    margin: 5px;
-    padding: 15px;
-    text-shadow: 0 1px .5px #555;
-    white-space: nowrap;
-    > div {
-        color: #ff751a;
-        font-size: 32px;
-        padding-bottom: 0;
-    }
-    tree {
-        div {
-            margin: 5px 0 5px;
-        }
-    }
-    ul {
-        margin: 0;
-        li {
-            list-style-type: none;
-        }
-    }
-    .hvr-skew-forward {
-        box-shadow: 0 0 1px transparent;
-        transform: perspective(1px) translateZ(0);
-        transition-duration: 0.3s;
-        transition-property: transform;
-        transform-origin: 0 100%;
-    }
-    .hvr-skew-forward:hover, .hvr-skew-forward:focus, .hvr-skew-forward:active {
-        opacity: .7;
-        transform: skew(-10deg);
-    }
-    .node {
-        cursor: pointer;
-    }
-    .node.active {
-        color: #1a75ff;
-        font-weight: bold;
-        transform: skew(-10deg);
-    }
-}
-
 @media (min-width: 768px) {
     #product-list {
         display: flex;
@@ -234,7 +215,6 @@ ng-view {
     #category-tree {
         position: relative;
     }
-
 }
 
 .container:before {

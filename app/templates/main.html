@@ -38,9 +38,15 @@
 <div class="container content">
     <div class="row">
         <div>
-            <input id="searchInput" ng-model="searchText.name" class="col-xs-12 col-sm-4 col-md-4"
+            <input id="searchInput" ng-model="searchText.name" class="col-md-4 col-sm-4 col-xs-12"
                    placeholder="&#x1F50E; Search for products...">
-            <div id="sortBy" class="col-xs-12 col-sm-8 col-md-8">
+
+            <a id="cartButton"
+               class="btn btn-info col-md-2 col-md-offset-2 col-sm-3 col-sm-offset-5 col-xs-5 col-xs-offset-7"
+               ng-class="{'btn-warning': counter}" href="#/cart"><span
+                class="glyphicon glyphicon-shopping-cart"></span> Cart <span ng-show="counter">({{counter}})</span></a>
+
+            <div id="sortBy" class="col-md-4 col-sm-12 col-xs-12">
                 <p>Sort by:</p>
 
                 <div class="btn-group">
@@ -76,7 +82,11 @@
             <h4>{{product.name}}</h4>
             <p class="description">{{product.description | limitTo: 150}}</p>
             <div class="additional-info">
-                <span class="price-label">{{product.price}}</span>
+                <span class="price-label">{{product.price | currency}}</span>
+                <button class="btn btn-default"
+                        ng-click="callToAddToProductList({id: product.id, name: product.name, price: product.price, quantity: 1}); updateCounter();">
+                    Add to cart
+                </button>
                 <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
             </div>
         </div>

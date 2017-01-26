@@ -3,7 +3,7 @@
         .module('webshopModule')
         .controller('productListCtrl', ProductListController);
 
-    function ProductListController($scope, api) {
+    function ProductListController($scope, api, productService) {
         function getProducts() {
             api.getProducts()
                 .then(function (result) {
@@ -48,7 +48,6 @@
             $scope.activeSort = propertyName;
             $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
             $scope.propertyName = propertyName;
-            $scope.showCategories = false;
         };
 
         $scope.lastCategory = null;
@@ -61,5 +60,15 @@
 
             return false;
         };
+
+        $scope.callToAddToProductList = function (product) {
+            productService.addProduct(product);
+        };
+
+        $scope.counter = productService.counter();
+
+        $scope.updateCounter = function () {
+            $scope.counter = productService.counter();
+        }
     }
 })();
