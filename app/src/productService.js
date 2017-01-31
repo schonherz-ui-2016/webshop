@@ -16,7 +16,6 @@
                 if (!matchProduct) {
                     productList.push(product);
                 }
-
             };
 
             var getProducts = function () {

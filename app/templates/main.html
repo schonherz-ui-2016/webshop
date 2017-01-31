@@ -65,8 +65,9 @@
 
 <div id="product-list" class="container content">
     <div id="category-tree">
-
-        <tree class="col-xs-6" node="categories" selected="selected"></tree>
+        <div ng-repeat="mainCategory in mainCategories">
+            <tree class="col-xs-6" node="mainCategory" selected="selected"></tree>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12"
