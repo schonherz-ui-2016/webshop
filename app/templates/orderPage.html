@@ -3,11 +3,11 @@
 <div class="feedback-frame">
     <div class="feedback" ng-class="{'show-feedback': modalVisible && (successfulOrder || !successfulOrder)}">
         <div><span ng-show="successfulOrder">Congratulations!</span><span
-            ng-show="!successfulOrder">We are sorry!</span>
+            ng-show="!successfulOrder">Warning!</span>
             <button class="btn btn-default" type="button" ng-click="redirection()">&times;</button>
         </div>
         <div><p ng-show="successfulOrder">Order was succesful.</p>
-            <p ng-show="!successfulOrder">Order was not succesful.</p></div>
+            <p ng-show="!successfulOrder">If you would like to order, please <a href="#/login">Log In</a>.</p></div>
         <div>
             <button class="btn btn-default" type="button" ng-click="redirection()">Close</button>
         </div>

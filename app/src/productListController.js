@@ -21,8 +21,6 @@
                 .then(function (result) {
                     var data = result.data;
 
-                    $scope.categories = buildTree(data[2]);
-
                     function buildTree(node) {
                         if (node.categories && node.categories.length) node.categories = node.categories.map(function (category) {
                             var mappedCategory = data.find(function (iterator) {
@@ -34,6 +32,19 @@
                         });
                         return node;
                     }
+
+                    var mainCategories = [];
+
+                    function isMainCategory() {
+
+                        angular.forEach(data, function (category) {
+                            if (!category.parent) mainCategories.push(buildTree(category));
+                        })
+                    }
+
+                    isMainCategory();
+
+                    $scope.mainCategories = mainCategories;
                 })
         }
 
@@ -64,11 +75,5 @@
         $scope.callToAddToProductList = function (product) {
             productService.addProduct(product);
         };
-
-        $scope.counter = productService.counter();
-
-        $scope.updateCounter = function () {
-            $scope.counter = productService.counter();
-        }
     }
 })();
