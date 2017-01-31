@@ -64,29 +64,31 @@
 </div>
 
 <div id="product-list" class="container content">
-    <div id="category-tree">
-        <div ng-repeat="mainCategory in mainCategories">
-            <tree class="col-xs-6" node="mainCategory" selected="selected"></tree>
-        </div>
-    </div>
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12"
-             ng-repeat-start="product in selected.products || products | orderBy: propertyName : reverse | filter: searchText:name">
-            <a href="#/product/{{product.id}}"><img ng-src="./css/img/kep{{(product.id - 1) % 10}}.jpg"></a>
-            <h4>{{product.name}}</h4>
-            <p class="description">{{product.description | limitTo: 150}}</p>
-            <div class="additional-info">
-                <span class="price-label">{{product.price | currency}}</span>
-                <div>
-                    <button class="btn btn-default glyphicon glyphicon-shopping-cart"
-                            ng-click="callToAddToProductList({id: product.id, name: product.name, price: product.price, quantity: 1}); updateCounter();"></button>
-                    <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
-                </div>
+        <div id="category-tree" class="col-md-3 col-sm-5 col-xs-12">
+            <div ng-repeat="mainCategory in mainCategories">
+                <tree class="col-xs-6" node="mainCategory" selected="selected"></tree>
             </div>
         </div>
-        <div ng-if="$index % 4 == 3"
-             class="clearfix visible-lg-block visible-md-block visible-sm-block"></div>
-        <div ng-if="$index % 4 == 1"
-             class="clearfix visible-sm-block" ng-repeat-end></div>
+        <div class="col-md-9 col-sm-7 col-xs-12">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-12"
+                     ng-repeat-start="product in selected.products || products | orderBy: propertyName : reverse | filter: searchText:name">
+                    <a href="#/product/{{product.id}}"><img ng-src="./css/img/kep{{(product.id - 1) % 10}}.jpg"></a>
+                    <h4>{{product.name}}</h4>
+                    <p class="description">{{product.description | limitTo: 150}}</p>
+                    <div class="additional-info">
+                        <span class="price-label">{{product.price | currency}}</span>
+                        <button class="btn btn-default glyphicon glyphicon-shopping-cart"
+                                ng-click="callToAddToProductList({id: product.id, name: product.name, price: product.price, quantity: 1}); updateCounter();"></button>
+                        <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
+                    </div>
+                </div>
+                <div ng-if="$index % 3 == 2"
+                     class="clearfix visible-lg-block visible-md-block"></div>
+                <div ng-if="$index % 2 == 1"
+                     class="clearfix visible-sm-block" ng-repeat-end></div>
+            </div>
+        </div>
     </div>
 </div>
