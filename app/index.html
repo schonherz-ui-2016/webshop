@@ -21,6 +21,9 @@
         </div>
         <div class="collapse navbar-collapse in" ng-class="{'show-navbar': showNavbar}" id="navbar">
             <ul class="nav navbar-nav navbar-right">
+                <li><a ng-show="session.authenticated" ng-click="showNavbar=!showNavbar; logout();"
+                       ng-class="{'show-icons': showNavbar}" href="#/"> Welcome {{user.name}} <span
+                    class="glyphicon glyphicon-user"></span></a></li>
                 <li><a ng-hide="session.authenticated" ng-click="showNavbar=!showNavbar"
                        ng-class="{'show-icons': showNavbar}"
                        href="#/registration"><span
@@ -31,19 +34,20 @@
                 <li><a ng-show="session.authenticated" ng-click="showNavbar=!showNavbar"
                        ng-class="{'show-icons': showNavbar}"
                        href="#/profile"><span class="glyphicon glyphicon-cog"></span> Profile</a></li>
+                <li><a href="#/cart" ng-click="showNavbar=!showNavbar; logout();"
+                       ng-class="{'show-icons': showNavbar}"><span class="glyphicon glyphicon-shopping-cart"></span>
+                    Cart</a></li>
                 <li><a ng-show="session.authenticated" href="#/" ng-click="showNavbar=!showNavbar; logout();"
-                       ng-class="{'show-icons': showNavbar}"> Log Out <span class="glyphicon glyphicon-log-out"></span></a>
+                       ng-class="{'show-icons': showNavbar}">Log Out <span
+                    class="glyphicon glyphicon-log-out"></span></a>
                 </li>
-            </ul>
-            <ul ng-show="session.authenticated" class="nav navbar-nav navbar-right">
-                <li><a href="#/"> Welcome {{user.name}} <span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
         </div>
     </div>
 </nav>
 <ng-view></ng-view>
 <footer class="footer-distributed">
-    <div class="container">
+    <div>
         <div class="footer-left">
             <img src="footer-logo.png">
             <p class="footer-links">

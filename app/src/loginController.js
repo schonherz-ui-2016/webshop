@@ -7,11 +7,11 @@
                     .then(function () {
                         $location.path("/");
                     }, function () {
-                        $scope.unsuccesfulLogin = true;
+                        showModal();
                     });
             };
 
-            $scope.showModal = function () {
+            var showModal = function () {
                 if ($scope.loginForm.$valid) {
                     $scope.modalVisible = true;
                 }

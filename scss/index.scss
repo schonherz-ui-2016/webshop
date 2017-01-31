@@ -10,6 +10,10 @@ html {
 }
 
 nav {
+    .navbar {
+        margin: 0;
+    }
+
     .navbar-brand {
         padding: 5px 15px;
 
@@ -17,10 +21,6 @@ nav {
             height: 40px;
         }
     }
-}
-
-nav.navbar {
-    margin: 0;
 }
 
 .content {
