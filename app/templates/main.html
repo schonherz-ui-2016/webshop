@@ -77,9 +77,11 @@
             <p class="description">{{product.description | limitTo: 150}}</p>
             <div class="additional-info">
                 <span class="price-label">{{product.price | currency}}</span>
-                <button class="btn btn-default glyphicon glyphicon-shopping-cart"
-                        ng-click="callToAddToProductList({id: product.id, name: product.name, price: product.price, quantity: 1}); updateCounter();"></button>
-                <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
+                <div>
+                    <button class="btn btn-default glyphicon glyphicon-shopping-cart"
+                            ng-click="callToAddToProductList({id: product.id, name: product.name, price: product.price, quantity: 1}); updateCounter();"></button>
+                    <a href="#/product/{{product.id}}" class="btn btn-default">Details</a>
+                </div>
             </div>
         </div>
         <div ng-if="$index % 4 == 3"
